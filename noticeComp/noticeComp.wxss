@@ -1,0 +1,45 @@
+@import '../../utils/font.wxss';
+.icon-xzfw-laba:before {
+    content: '\e7cb';
+}
+.sysnotice_box {
+    overflow: hidden;
+    white-space: nowrap;
+}
+.notice_item {
+    display: inline-block;
+    padding-left: 33rpx;
+}
+@keyframes noti_move {
+    from {
+        left: 0;
+    }
+    to {
+        left: -100%;
+    }
+}
+.sysnotice_move {
+    position: relative;
+}
+.icon-xzfw-laba {
+    display: inline-block;
+    margin-left: 22rpx;
+    font-size: 42rpx;
+    vertical-align: middle;
+}
+.sysnotice_list {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+}
+.notice_item1 {
+    padding-left: 13rpx;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 650rpx;
+    position: relative;
+}
+.sysnotice_move1 {
+    position: relative;
+    transition: all 1s;
+}
