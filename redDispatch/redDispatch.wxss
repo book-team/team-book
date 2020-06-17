@@ -1,0 +1,201 @@
+page {
+    background: #fef8e8;
+}
+.app {
+    width: 100%;
+    height: 100%;
+}
+.dispatch-top-box {
+    width: 100%;
+    height: 500rpx;
+    background-size: 100% 100%;
+}
+.dispatch-cen-box {
+    width: 634rpx;
+    height: 412rpx;
+    background: #fff;
+    margin: 0 auto;
+    border-radius: 0 0 20rpx 20rpx;
+    position: relative;
+    top: -1%;
+    box-shadow: 10rpx 10rpx 15rpx #ede2c2;
+}
+.dispatch-cen-con {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: -51rpx;
+    font-size: 0;
+}
+.dispatch-user-box {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 25rpx;
+}
+.dispatch-uesr-item {
+    display: inline-block;
+    width: 102rpx;
+    height: 102rpx;
+    padding: 6rpx;
+    margin-left: 20rpx;
+    border: 2rpx solid #faa639;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+.dispatch-uesr-item:first-child {
+    margin-left: 0;
+}
+.dispatch-uesr-item image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.dispatch-nouesr {
+    border-style: dashed;
+}
+.dispatch-p {
+    width: 100%;
+    text-align: center;
+    font-size: 26rpx;
+    color: #565656;
+    margin-top: 10rpx;
+}
+.dispatch-btn {
+    width: 500rpx;
+    height: 76rpx;
+    line-height: 76rpx;
+    text-align: center;
+    margin-top: 25rpx;
+    font-size: 26rpx;
+    color: #fff;
+    border-radius: 38rpx;
+    box-shadow: 8rpx 8rpx 15rpx #ecd5d9;
+}
+.invitation-btn {
+    background: #ff4848;
+}
+.back-btn {
+    background: #ffd13e;
+}
+.dispatch-activity-box {
+    width: 100%;
+    padding: 0 58rpx;
+    margin-top: 26rpx;
+    box-sizing: border-box;
+}
+.dispatch-activity-title {
+    width: 100%;
+    height: 70rpx;
+    line-height: 70rpx;
+    font-size: 30rpx;
+    color: #d63344;
+    border-bottom: 2rpx dashed #f4c7bf;
+    box-sizing: border-box;
+}
+.dispatch-activity-item {
+    width: 100%;
+    margin-top: 25rpx;
+}
+.dispatch-activity-left {
+    float: left;
+    font-size: 28rpx;
+    color: #7c7c7c;
+}
+.dispatch-activity-right {
+    float: left;
+    width: calc(100% - 132rpx);
+    margin-left: 20rpx;
+    font-size: 26rpx;
+    line-height: 40rpx;
+}
+.dispatch-activity-tip {
+    color: #999;
+    margin-bottom: 10rpx;
+    white-space: nowrap;
+}
+.dispatch-redgone-box {
+    width: 248rpx;
+    height: 220rpx;
+    margin: 0 auto;
+    margin-bottom: 40rpx;
+}
+.service-tip-box {
+    border-radius: 3rpx;
+}
+.dispatch-coupon-box {
+    width: 100%;
+}
+.dispatch-coupon-title {
+    font-size: 28rpx;
+    color: #565656;
+    text-align: center;
+}
+.dispatch-coupon-item {
+    width: 550rpx;
+    height: 160rpx;
+    margin: 40rpx auto 56rpx;
+    border-radius: 10rpx;
+    box-shadow: 0rpx 0rpx 30rpx #e8e8e8;
+    box-sizing: border-box;
+}
+.dispatch-coupon-left {
+    float: left;
+    width: 32%;
+    height: 100%;
+    background-size: 100% 100%;
+    color: #fff;
+    line-height: 160rpx;
+    text-align: center;
+    box-sizing: border-box;
+}
+.dispatch-reduce-icon {
+    font-size: 28rpx;
+}
+.dispatch-reduce-money {
+    font-size: 56rpx;
+}
+.dispatch-coupon-right {
+    float: left;
+    width: 68%;
+    height: 100%;
+    padding: 10rpx 20rpx;
+    background: #fff;
+    position: relative;
+    border-radius: 0 12rpx 12rpx 0;
+    box-sizing: border-box;
+}
+.dispatch-reduce-top {
+    width: 100%;
+    height: 52rpx;
+    line-height: 52rpx;
+    font-size: 24rpx;
+    color: #464646;
+    border-bottom: 2rpx dashed #a5a5a5;
+    box-sizing: border-box;
+}
+.dispatch-reduce-bottom {
+    margin-top: 10rpx;
+}
+.dispatch-reduce-tip {
+    font-size: 22rpx;
+    color: #8e8e8e;
+    margin-bottom: 10rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.dispatch-reduce-type {
+    width: 87rpx;
+    height: 54rpx;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.backhome {
+    width: 92rpx;
+    height: 92rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 183rpx;
+}

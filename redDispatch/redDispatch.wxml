@@ -1,0 +1,105 @@
+<view class="app" hidden="{{!loaded}}">
+    <view class="dispatch-top-box" style="background: url({{dispatch_pic_pic}}) no-repeat;"></view>
+    <view class="dispatch-cen-box">
+        <view class="dispatch-cen-con">
+            <block wx:if="{{status==1}}">
+                <view class="dispatch-user-box">
+                    <block wx:for="{{uesrList}}" wx:key="{{item}}">
+                        <view class="dispatch-uesr-item {{!item?'dispatch-nouesr':''}}">
+                            <block wx:if="{{item}}">
+                                <image lazy-load="true" src="{{item}}" />
+                            </block>
+                        </view>
+                    </block>
+                </view>
+                <view class="dispatch-p">还差{{leftnum}}人即可拆开红包，快邀请好友来拆</view>
+                <view class="dispatch-p">{{hour}}:{{minute}}:{{second}}后结束</view>
+            </block>
+            <block wx:elif="{{status==2 || status==3 || status==5}}">
+                <view class="dispatch-redgone-box">
+                    <image src="{{redgone_pic}}" />
+                </view>
+                <view class="dispatch-p">{{overdueStr}}</view>
+            </block>
+            <block wx:elif="{{status==6}}">
+                <view class="dispatch-coupon-box">
+                    <view class="dispatch-coupon-title">恭喜您，已成功拆开红包</view>
+                    <view class="dispatch-coupon-item clearfix">
+                        <view class="dispatch-coupon-left" style="background: url({{newcoupon_bg_pic}}) no-repeat;">
+                            <text class="dispatch-reduce-icon">￥</text>
+                            <text class="dispatch-reduce-money">{{reduce}}</text>
+                        </view>
+                        <view class="dispatch-coupon-right">
+                            <view class="dispatch-reduce-top">
+                                <text>满{{full}}减{{reduce}}</text>
+                            </view>
+                            <view class="dispatch-reduce-bottom">
+                                <view class="dispatch-reduce-tip">{{storename}}</view>
+                                <view class="dispatch-reduce-tip">有效期至{{coupon_etime}}</view>
+                            </view>
+                            <view class="dispatch-reduce-type">
+                                <block wx:if="{{belong_type==1}}">
+                                    <image src="{{coupontype_pic2}}" />
+                                </block>
+                                <block wx:elif="{{belong_type==2}}">
+                                    <image src="{{coupontype_pic3}}" />
+                                </block>
+                                <block wx:else>
+                                    <image src="{{coupontype_pic1}}" />
+                                </block>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <block wx:if="{{status==1}}">
+                <block wx:if="{{shareRed==0 || isself==1}}">
+                    <button class="dispatch-btn invitation-btn" open-type="share">邀请微信好友一起拆</button>
+                </block>
+                <block wx:else>
+                    <button class="dispatch-btn invitation-btn" data-num="0" catchtap="dismantlRed">一起拆</button>
+                </block>
+            </block>
+            <block wx:if="{{(status==1 && shareRed==0) || status==3}}">
+                <button class="dispatch-btn back-btn" catchtap="backhome">返回首页</button>
+            </block>
+            <block wx:if="{{(status==1 && shareRed==1) || status==2 || status==5 || status==6}}">
+                <button class="dispatch-btn back-btn" data-num="1" catchtap="dismantlRed">拆一个新红包</button>
+            </block>
+        </view>
+    </view>
+    <view class="dispatch-activity-box">
+        <view class="dispatch-activity-title">活动说明</view>
+        <view class="dispatch-activity-item clearfix">
+            <view class="dispatch-activity-left">活动时间</view>
+            <view class="dispatch-activity-right">
+                <view class="dispatch-activity-tip">本活动结束时间{{endtime}}</view>
+            </view>
+        </view>
+        <view class="dispatch-activity-item clearfix" style="margin-top: 10rpx;">
+            <view class="dispatch-activity-left">活动规则</view>
+            <view class="dispatch-activity-right">
+                <view class="dispatch-activity-tip">每个红包除发起者外需要3个人协助才能拆开</view>
+                <view class="dispatch-activity-tip">红包应在24小时内拆开，逾期无效</view>
+                <block wx:if="{{everyoneStr}}">
+                    <view class="dispatch-activity-tip">{{everyoneStr}}</view>
+                </block>
+                <block wx:if="{{everydayStr}}">
+                    <view class="dispatch-activity-tip">{{everydayStr}}</view>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view class="service-tip-box" hidden="{{!showTip}}">
+        <view class="service-tip-txt">{{tipText}}</view>
+    </view>
+    <view class="backhome" catchtap="backhome">
+        <view>
+            <view>返回</view>
+            <view>首页</view>
+        </view>
+    </view>
+</view>
+<import src="../../components/authod.wxml" />
+<template is="vqd_author" data="{{userInfo:userInfo,chooseAuthor:chooseAuthor}}"></template>
+<template is="newgift" data="{{hasgift:hasgift,coureduce:coureduce,coufull:coufull}}"></template>

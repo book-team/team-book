@@ -1,0 +1,252 @@
+<!--填写信息-->
+<view class="submitpage newsubmitpage" hidden="{{!showpage2}}">
+    <form bindsubmit='{{userInfo.avatarUrl?"saveSellInfo":"openAuthor"}}' report-submit="true">
+        <view class="appoint-box">
+            <view class="appoint-item clearfix" wx:if="{{showselbox}}">
+                <view class="appoint-name">选择行业</view>
+                <text class="icon-rightarrow ico-moon"></text>
+                <view class="appoint-info">
+                    <view class="appoint-view" catchtap='showIndPage'>{{seltext}}</view>
+                </view>
+            </view>
+            <view class="appoint-item clearfix">
+                <view class="appoint-name">商家名称</view>
+                <view class="appoint-info">
+                    <input class="appoint-input" type="text" name="storename" placeholder="请输入商家名称" placeholder-class="appoint-place" value="{{storename}}" />
+                </view>
+            </view>
+            <view class="appoint-item clearfix">
+                <view class="appoint-name">商家分类</view>
+                <text class="icon-rightarrow ico-moon"></text>
+                <picker value="{{classIdx}}" mode="selector" range="{{classifylist}}" bindchange="bindClass">
+                    <view class="appoint-info">
+                        <block wx:if="{{classIdx==-1}}">
+                            <view class="appoint-view appoint-place">请选择商家分类</view>
+                        </block>
+                        <block wx:else>
+                            <view class="appoint-view">{{classifylist[classIdx]}}</view>
+                        </block>
+                    </view>
+                </picker>
+            </view>
+            <view class="appoint-item clearfix">
+                <view class="appoint-name">联系人</view>
+                <view class="appoint-info">
+                    <input class="appoint-input" type="text" name="contacts" placeholder="请输入联系人" placeholder-class="appoint-place" value="{{realname}}" />
+                </view>
+            </view>
+            <view class="appoint-item clearfix">
+                <view class="appoint-name">联系电话</view>
+                <view class="appoint-info">
+                    <input class="appoint-input" type="number" name="telphone" placeholder="请输入联系电话" placeholder-class="appoint-place" value="{{phone}}" />
+                </view>
+            </view>
+            <view class="appoint-item clearfix noborder">
+                <view class="appoint-name">地址</view>
+                <text class="icon-rightarrow ico-moon"></text>
+                <view class="appoint-info" catchtap="openMap">
+                    <view class="appoint-view {{!storeaddr?'appoint-place':''}}">{{storeaddr||'请选择地址'}}</view>
+                </view>
+            </view>
+            <view class="appoint-item clearfix">
+                <view class="appoint-name">门牌号</view>
+                <view class="appoint-info">
+                    <input class="appoint-input" type="text" name="detailaddress" placeholder="请输入详细地址" placeholder-class="appoint-place" value="{{detailaddress}}" />
+                </view>
+            </view>
+            <view class="appoint-item">
+                <view class="store-img-box">
+                    <block wx:if="{{need_pic==0}}">
+                        <view class="store-img-item">
+                            <view class="store-img-title">门店/门头照片</view>
+                            <view class="store-img-info">
+                                <block wx:if="{{!isstorepic}}">
+                                    <view class="store-noimg" data-num="0" catchtap="uploadFormImg">
+                                        <image src="{{merchant_noimg}}" />
+                                    </view>
+                                </block>
+                                <block wx:else>
+                                    <view class="store-isimg" data-num="0" catchtap="uploadFormImg">
+                                        <image src="{{storepic}}" />
+                                    </view>
+                                </block>
+                            </view>
+                        </view>
+                        <view class="store-img-item">
+                            <view class="store-img-title">工商营业执照</view>
+                            <view class="store-img-info">
+                                <block wx:if="{{!isbusinesspic}}">
+                                    <view class="store-noimg" data-num="1" catchtap="uploadFormImg">
+                                        <image src="{{merchant_noimg}}" />
+                                    </view>
+                                </block>
+                                <block wx:else>
+                                    <view class="store-isimg" data-num="1" catchtap="uploadFormImg">
+                                        <image src="{{businesspic}}" />
+                                    </view>
+                                </block>
+                            </view>
+                        </view>
+                    </block>
+                    <block>
+                        <view class="store-img-item" style='margin-top:25rpx;'>
+                            <view class="store-img-title">商家logo</view>
+                            <view class="store-img-info">
+                                <block wx:if="{{!islogopic}}">
+                                    <view class="store-noimg" data-num="2" catchtap="uploadFormImg">
+                                        <image src="{{merchant_noimg}}" />
+                                    </view>
+                                </block>
+                                <block wx:else>
+                                    <view class="store-isimg" data-num="2" catchtap="uploadFormImg">
+                                        <image src="{{logopic}}" />
+                                    </view>
+                                </block>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+                <view class="store-view clearfix">
+                    <view class="store-view-left">咨询热线：{{telphone}}</view>
+                </view>
+            </view>
+        </view>
+        <button class="appoint-btn" style="background:{{color}}" form-type="submit">提交
+            <block wx:if="{{need_charge==0}}">（{{need_money}}元）</block>
+        </button>
+    </form>
+</view>
+<!--审核成功，展示信息-->
+<view class='successpage' hidden="{{!showpage1}}">
+    <view class='head_bg'>
+        <image src="{{banner_pic||storebg}}"></image>
+        <view class='head_shadow'></view>
+        <view class='head_store'>
+            <image class='head_store_img' src='{{logopic}}'></image>
+            <view style='text-align:center;overflow:hidden;'>
+                <view class='head_store_name'>{{storename}}
+                    <text class='icon-pencilwhite ico-moon' catchtap='changeInfo' data-type="1" data-val="{{storename}}"></text> </view>
+            </view>
+        </view>
+    </view>
+    <view class='appoint-box'>
+        <view class="appoint-item clearfix">
+            <view class="appoint-name">商家分类</view>
+            <view class="appoint-info">
+                <view class="appoint-view">{{store_type}}</view>
+            </view>
+        </view>
+        <view class="appoint-item clearfix noborder">
+            <view class="appoint-name">商家地址</view>
+            <view class="appoint-info">
+                <view class="appoint-view">{{storeaddr}}</view>
+            </view>
+        </view>
+        <view class="appoint-item clearfix">
+            <view class="appoint-name">门牌号</view>
+            <view class="appoint-info" data-type="2" catchtap='changeInfo' data-val="{{detailaddress}}">
+                <view class="appoint-input overflow">{{detailaddress}}</view>
+                <text class="icon-rightarrow ico-moon"></text>
+            </view>
+        </view>
+        <view class="appoint-item clearfix">
+            <view class="appoint-name">客服电话</view>
+            <view class="appoint-info" catchtap='changeInfo' data-type="3" data-val="{{kfphone}}">
+                <view class="appoint-input">{{kfphone}}
+                    <text class="icon-rightarrow ico-moon"></text>
+                </view>
+            </view>
+        </view>
+        <view class="appoint-item clearfix">
+            <view class="appoint-name">商家介绍</view>
+            <view class="appoint-input" style='height:300rpx;text-align: left;margin-top:20rpx;word-break: break-all;white-space: pre;' catchtap='changeInfo' data-val="{{introduction}}" data-type="4">{{introduction || '请输入商家介绍'}}</view>
+        </view>
+        <view class="appoint-item clearfix" style='border-top:20rpx solid #eee'>
+            <view class="appoint-name">联系人</view>
+            <view class="appoint-info" catchtap='changeInfo' data-type="5" data-val="{{realname}}">
+                <view class="appoint-input">{{realname}}
+                    <text class="icon-rightarrow ico-moon"></text>
+                </view>
+            </view>
+        </view>
+        <view class="appoint-item clearfix">
+            <view class="appoint-name">联系电话</view>
+            <view class="appoint-info">
+                <view class="appoint-input">{{phone}}</view>
+            </view>
+        </view>
+        <view class="appoint-item clearfix noborder" style='border-top:20rpx solid #eee'>
+            <view class="appoint-name">设置</view>
+            <view class="appoint-info" catchtap='sellGood'>
+                <view class="appoint-input">
+                    <text class="icon-rightarrow ico-moon"></text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<!--审核失败-->
+<view class='waitpage' hidden="{{!showpage4}}">
+    <image class='wait-icon' src='{{failicon}}'></image>
+    <view class='wait-tip'>“{{realname}}”很抱歉，您的申请的“{{storename}}”没有通过“{{headname}}”的审核，可以
+        <text catchtap='reApply'>重新申请</text> ！ </view>
+    <block wx:if="{{reason != null}}">
+        <view class='fail-reason'>未通过原因：{{reason}}</view>
+    </block>
+</view>
+<!--审核中-->
+<view class='waitpage' hidden="{{!showpage3}}">
+    <image class='wait-icon' src='{{waiticon}}'></image>
+    <view class='wait-tip'>您的申请正在审核，请耐心等待！</view>
+</view>
+<!--选择行业-->
+<view class='shop_remove_bg' hidden="{{!showpage5}}">
+    <view class='selbox'>
+        <view class='selbox-tit'>请选择行业</view>
+        <view class='sel-list'>
+            <view class='icon-fanhui ico-moon ind-left' catchtap='turnLeft' wx:if="{{selnum>2}}"></view>
+            <view class="industry-box {{selnum<=2?'ind-padding':''}}">
+                <view style="margin-left:{{-220*clicknum+'rpx'}};">
+                    <view class='sel-item sel-canyin select' catchtap='selIndustry' data-num="0" wx:if="{{enter_food>0}}">
+                        <view class='sel-icon'>
+                            <text class='ico-moon icon-canyin'></text>
+                        </view>
+                        <view class="sel-txt">饮食</view>
+                    </view>
+                    <view class='sel-item sel-yuyue select' catchtap='selIndustry' data-num="1" wx:if="{{enter_order>0}}">
+                        <view class='sel-icon'>
+                            <text class='ico-moon icon-yuyue1'></text>
+                        </view>
+                        <view class="sel-txt">预约</view>
+                    </view>
+                    <view class='sel-item sel-dianshang select' catchtap='selIndustry' data-num="2" wx:if="{{enter_mall>0}}">
+                        <view class='sel-icon'>
+                            <text class='ico-moon icon-shangdian'></text>
+                        </view>
+                        <view class="sel-txt">商城</view>
+                    </view>
+                    <view class='sel-item sel-tongcheng select' catchtap='selIndustry' data-num="3" wx:if="{{enter_city>0}}">
+                        <view class='sel-icon'>
+                            <text class='ico-moon icon-loufang'></text>
+                        </view>
+                        <view class="sel-txt">同城</view>
+                    </view>
+                    <view class='sel-item sel-jiudian select' catchtap='selIndustry' data-num="4" wx:if="{{enter_hotel>0}}">
+                        <view class='sel-icon'>
+                            <text class='ico-moon icon-jiudian1'></text>
+                        </view>
+                        <view class="sel-txt">酒店</view>
+                    </view>
+                </view>
+            </view>
+            <view class="icon-gengduo3 ico-moon ind-right" catchtap='turnRight' wx:if="{{selnum>2}}"></view>
+        </view>
+    </view>
+</view>
+<view class="service-tip-box" hidden="{{!showTip}}">
+    <view class="service-tip-txt">{{tipText}}</view>
+</view>
+<import src="../../components/authod.wxml" />
+<template is="vqd_author" data="{{userInfo:userInfo,chooseAuthor:chooseAuthor,isopenAuthor:isopenAuthor}}"></template>
+<template is="newgift" data="{{hasgift:hasgift,coureduce:coureduce,coufull:coufull}}"></template>
+<template is="authorpage" data="{{userInfo:userInfo}}"></template>

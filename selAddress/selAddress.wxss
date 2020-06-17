@@ -1,0 +1,75 @@
+.address-list {
+    padding: 20rpx 40rpx;
+    background: #fff;
+    box-sizing: border-box;
+}
+.address-info {
+    overflow: hidden;
+    color: #333;
+}
+.address-info > text {
+    float: left;
+}
+.address-detail {
+    margin-top: 35rpx;
+    font-size: 28rpx;
+    color: #666;
+}
+.triangle_arrow {
+    position: absolute;
+    top: 30rpx;
+    right: 16rpx;
+}
+page {
+    width: 100%;
+    height: 100%;
+}
+.app {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+.sel-addr-name {
+    display: inline-block;
+    width: 118rpx;
+    max-width: 118rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.sel-addr-phone {
+    margin-left: 30rpx;
+}
+.sel-addr-default {
+    margin-left: 32rpx;
+    font-size: 24rpx;
+    padding: 2rpx 12rpx;
+    border: 2rpx #626262 solid;
+    border-radius: 6rpx;
+    line-height: normal;
+}
+.addr-active {
+    color: #f23030;
+}
+.default-active {
+    border-color: #f23030;
+}
+.address_manage {
+    width: 80%;
+    margin: 0 auto 10rpx;
+    height: 85rpx;
+    border-radius: 10rpx;
+    color: #fff;
+    font-size: 30rpx;
+}
+.newaddress_manage_ul {
+    height: calc(100% - 200rpx);
+    overflow: hidden;
+}
+.address-list:last-child {
+    border-bottom: 0;
+}
+.addnew-address {
+    background: #fff;
+    position: static;
+}

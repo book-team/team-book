@@ -1,0 +1,27 @@
+<view class="app" hidden="{{!loaded}}">
+    <view style="height: 100%;">
+        <scroll-view scroll-y="true" class="newaddress_manage_ul">
+            <block wx:for="{{addressList}}" wx:key="{{item}}">
+                <view class="address-list">
+                    <view class="address-list-info" data-addressid="{{item.id}}" data-index="{{index}}" catchtap="selectAddr">
+                        <view class="address-info {{addrIdx==(index+1)?'addr-active':''}}">
+                            <text class="sel-addr-name">{{item.consignee}}</text>
+                            <text class="sel-addr-phone">{{item.telphone}}</text>
+                            <text class="sel-addr-default {{addrIdx==(index+1)?'default-active':''}}" wx:if="{{item.isdefault==1}}">默认</text>
+                        </view>
+                        <view class="address-detail">{{item.province+item.city+item.county+item.street}}</view>
+                    </view>
+                </view>
+            </block>
+        </scroll-view>
+        <view class="addnew-address">
+            <view class="address_manage" style="background: #F23030;" catchtap="addNewAddress">
+                <text>+ 新建地址</text>
+            </view>
+            <view class="address_manage" style="background: #3087F2;" catchtap="goToAddress">
+                <text>管理</text>
+            </view>
+        </view>
+    </view>
+    <view class="backhome" catchtap="backhome">回到\n首页</view>
+</view>
