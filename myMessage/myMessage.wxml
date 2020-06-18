@@ -1,0 +1,336 @@
+<view class="app" hidden="{{!loaded}}">
+    <block wx:if="{{!dsNotice && !groupNotice && !disNotice && !seckNotice && !kjNotice && !otherNotice && !takeoutNotice && !cityNotice && !orderNotice && !hotelNotice}}">
+        <view class="mymsg-box" style="background:#F0F0F0;">
+            <view class='new_nothing'>
+                <view class="ico-moon icon-wujiedu"></view>
+                <view>暂无任何内容</view>
+            </view>
+        </view>
+    </block>
+    <block wx:else>
+        <view class="mymsg-box" style="background: #EEEEEE;">
+            <block wx:if="{{dsNotice}}">
+                <view class="message-item clearfix" data-num="1" catchtap="goToMessageList">
+                    <view class="message-left">
+                        <image src="{{goods_msg_pic}}" />
+                    </view>
+                    <view class="message-right">
+                        <view class="message-goodstype clearfix">
+                            <text class="message-goodstype-left">电商</text>
+                            <text class="message-goodstype-right">{{dsNotice.addtime}}</text>
+                        </view>
+                        <view class="message-goodsinfo clearfix">
+                            <view class="message-goodsinfo-left {{dsNotice.newnums>0?'message-bubble':''}}">
+                                <text>{{dsNotice.title}}</text>
+                                <text>商品名称：{{dsNotice.content}}</text>
+                            </view>
+                            <view class="message-goodsinfo-right" wx:if="{{dsNotice.newnums>0}}">{{dsNotice.newnums}}</view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <block wx:if="{{groupNotice}}">
+                <view class="message-item clearfix" data-num="2" catchtap="goToMessageList">
+                    <view class="message-left">
+                        <image src="{{group_msg_pic}}" />
+                    </view>
+                    <view class="message-right">
+                        <view class="message-goodstype clearfix">
+                            <text class="message-goodstype-left">拼团</text>
+                            <text class="message-goodstype-right">{{groupNotice.addtime}}</text>
+                        </view>
+                        <view class="message-goodsinfo clearfix">
+                            <view class="message-goodsinfo-left {{groupNotice.newnums>0?'message-bubble':''}}">
+                                <text>{{groupNotice.title}}</text>
+                                <block wx:if="{{groupNotice.status==1 || groupNotice.status==2 || groupNotice.status==3 || groupNotice.status==4 || groupNotice.status==5 || groupNotice.status==6 || groupNotice.status==7 || groupNotice.status==8 || groupNotice.status==9}}">
+                                    <text>商品名称：{{groupNotice.content}}</text>
+                                </block>
+                                <block wx:elif="{{groupNotice.status==10 || groupNotice.status==11}}">
+                                    <text>商品名称：{{groupNotice.content}}</text>
+                                    <text>团长：{{groupNotice.group_head}}</text>
+                                </block>
+                                <block wx:elif="{{groupNotice.status==12}}">
+                                    <text>拼团进度</text>
+                                </block>
+                                <block wx:elif="{{groupNotice.status==13}}">
+                                    <text>团长佣金提现-审核通过</text>
+                                </block>
+                                <block wx:elif="{{groupNotice.status==14}}">
+                                    <text>团长佣金提现-审核失败</text>
+                                </block>
+                            </view>
+                            <view class="message-goodsinfo-right" wx:if="{{groupNotice.newnums>0}}">{{groupNotice.newnums}}</view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <block wx:if="{{disNotice}}">
+                <view class="message-item clearfix" data-num="3" catchtap="goToMessageList">
+                    <view class="message-left">
+                        <image src="{{dist_msg_pic}}" />
+                    </view>
+                    <view class="message-right">
+                        <view class="message-goodstype clearfix">
+                            <text class="message-goodstype-left">分销</text>
+                            <text class="message-goodstype-right">{{disNotice.addtime}}</text>
+                        </view>
+                        <view class="message-goodsinfo clearfix">
+                            <view class="message-goodsinfo-left {{disNotice.newnums>0?'message-bubble':''}}">
+                                <text>{{disNotice.title}}</text>
+                                <block wx:if="{{disNotice.status==1 || disNotice.status==2 || disNotice.status==3 || disNotice.status==4 || disNotice.status==5 || disNotice.status==6 || disNotice.status==7 || disNotice.status==8 || disNotice.status==9}}">
+                                    <text>商品名称：{{disNotice.content}}</text>
+                                </block>
+                                <block wx:elif="{{disNotice.status==15 || disNotice.status==16}}">
+                                    <text>下单用户：{{disNotice.nickname}}</text>
+                                    <text>所属分销商：{{disNotice.dis_uname}}</text>
+                                </block>
+                                <block wx:elif="{{disNotice.status==17 || disNotice.status==18}}">
+                                    <text>提现金额：￥{{disNotice.money}}</text>
+                                    <text>提现账户：{{disNotice.cash_num}}</text>
+                                </block>
+                                <block wx:elif="{{disNotice.status==19}}">
+                                    <text>结算金额：￥{{disNotice.money}}</text>
+                                    <text>订单号：{{disNotice.order_id}}</text>
+                                </block>
+                                <block wx:elif="{{disNotice.status==20}}">
+                                    <text>成员名称：{{disNotice.nickname}}</text>
+                                    <text>加入时间：{{disNotice.addtime}}</text>
+                                </block>
+                                <block wx:elif="{{disNotice.status==21 || disNotice.status==22}}">
+                                    <text>申请用户：{{disNotice.nickname}}</text>
+                                    <text>申请时间：{{disNotice.addtime}}</text>
+                                </block>
+                                <block wx:elif="{{disNotice.status==23}}">
+                                    <text>当前等级：{{disNotice.grade==1?'青铜':disNotice.grade==2?'白银':'黄金'}}</text>
+                                    <text>更新时间：{{disNotice.addtime}}</text>
+                                </block>
+                                <block wx:elif="{{disNotice.status==24}}">
+                                    <text>当前等级：{{disNotice.old_grade==1?'青铜':disNotice.old_grade==2?'白银':'黄金'}}</text>
+                                    <text>修改等级：{{disNotice.grade==1?'青铜':disNotice.grade==2?'白银':'黄金'}}</text>
+                                </block>
+                                <block wx:elif="{{disNotice.status==25}}">
+                                    <text>当前状态：被拉黑</text>
+                                    <text>操作时间：{{disNotice.addtime}}</text>
+                                </block>
+                                <block wx:elif="{{disNotice.status==26}}">
+                                    <text>当前状态：已恢复</text>
+                                    <text>操作时间：{{disNotice.addtime}}</text>
+                                </block>
+                            </view>
+                            <view class="message-goodsinfo-right" wx:if="{{disNotice.newnums>0}}">{{disNotice.newnums}}</view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <block wx:if="{{seckNotice}}">
+                <view class="message-item clearfix" data-num="4" catchtap="goToMessageList">
+                    <view class="message-left">
+                        <image src="{{seckill_msg_pic}}" />
+                    </view>
+                    <view class="message-right">
+                        <view class="message-goodstype clearfix">
+                            <text class="message-goodstype-left">秒杀</text>
+                            <text class="message-goodstype-right">{{seckNotice.addtime}}</text>
+                        </view>
+                        <view class="message-goodsinfo clearfix">
+                            <view class="message-goodsinfo-left {{seckNotice.newnums>0?'message-bubble':''}}">
+                                <text>{{seckNotice.title}}</text>
+                                <text>商品名称：{{seckNotice.content}}</text>
+                            </view>
+                            <view class="message-goodsinfo-right" wx:if="{{seckNotice.newnums>0}}">{{seckNotice.newnums}}</view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <block wx:if="{{kjNotice}}">
+                <view class="message-item clearfix" data-num="5" catchtap="goToMessageList">
+                    <view class="message-left">
+                        <image src="{{bargain_msg_pic}}" />
+                    </view>
+                    <view class="message-right">
+                        <view class="message-goodstype clearfix">
+                            <text class="message-goodstype-left">砍价</text>
+                            <text class="message-goodstype-right">{{kjNotice.addtime}}</text>
+                        </view>
+                        <view class="message-goodsinfo clearfix">
+                            <view class="message-goodsinfo-left {{kjNotice.newnums>0?'message-bubble':''}}">
+                                <text>{{kjNotice.title}}</text>
+                                <text>商品名称：{{kjNotice.content}}</text>
+                            </view>
+                            <view class="message-goodsinfo-right" wx:if="{{kjNotice.newnums>0}}">{{kjNotice.newnums}}</view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <block wx:if="{{otherNotice}}">
+                <view class="message-item clearfix" data-num="6" catchtap="goToMessageList">
+                    <view class="message-left">
+                        <image src="{{other_msg_pic}}" />
+                    </view>
+                    <view class="message-right">
+                        <view class="message-goodstype clearfix">
+                            <text class="message-goodstype-left">其他通知</text>
+                            <text class="message-goodstype-right">{{otherNotice.addtime}}</text>
+                        </view>
+                        <view class="message-goodsinfo clearfix">
+                            <view class="message-goodsinfo-left {{otherNotice.newnums>0?'message-bubble':''}}">
+                                <text>{{otherNotice.title}}</text>
+                                <block wx:if="{{otherNotice.status==1}}">
+                                    <text>您的一张优惠券即将到期，快去及时使用，享受优惠吧！</text>
+                                </block>
+                                <block wx:elif="{{otherNotice.status==2}}">
+                                    <text>您已领取一张优惠券，快去及时使用，享受优惠吧！</text>
+                                </block>
+                                <block wx:elif="{{otherNotice.status==3}}">
+                                    <text>充值金额：￥{{otherNotice.money}}</text>
+                                    <text>优惠：充{{otherNotice.money}}送{{otherNotice.give_money}}元</text>
+                                </block>
+                            </view>
+                            <view class="message-goodsinfo-right" wx:if="{{otherNotice.newnums>0}}">{{otherNotice.newnums}}</view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <block wx:if="{{takeoutNotice}}">
+                <view class="message-item clearfix" data-num="7" catchtap="goToMessageList">
+                    <view class="message-left">
+                        <image src="{{takeout_msg_pic}}" />
+                    </view>
+                    <view class="message-right">
+                        <view class="message-goodstype clearfix">
+                            <text class="message-goodstype-left">零售餐饮</text>
+                            <text class="message-goodstype-right">{{takeoutNotice.addtime}}</text>
+                        </view>
+                        <view class="message-goodsinfo clearfix">
+                            <view class="message-goodsinfo-left {{takeoutNotice.newnums>0?'message-bubble':''}}">
+                                <text>{{takeoutNotice.title}}</text>
+                                <block wx:if="{{takeoutNotice.status==1 || takeoutNotice.status==2 || takeoutNotice.status==3 || takeoutNotice.status==4 || takeoutNotice.status==5 || takeoutNotice.status==6 || takeoutNotice.status==7 || takeoutNotice.status==8 || takeoutNotice.status==9 || takeoutNotice.status==40}}">
+                                    <text>商品名称：{{takeoutNotice.content}}</text>
+                                </block>
+                                <block wx:elif="{{takeoutNotice.status==46}}">
+                                    <text>点餐成功</text>
+                                </block>
+                                <block wx:elif="{{takeoutNotice.status==47}}">
+                                    <text>您的一份订餐已到提取时间，请尽快到门店提取，逾期不候哦</text>
+                                </block>
+                                <block wx:elif="{{takeoutNotice.status==48}}">
+                                    <text>预约成功</text>
+                                </block>
+                                <block wx:elif="{{takeoutNotice.status==49}}">
+                                    <text>预约失败</text>
+                                </block>
+                                <block wx:elif="{{takeoutNotice.status==50}}">
+                                    <text>正在送餐</text>
+                                </block>
+                            </view>
+                            <view class="message-goodsinfo-right" wx:if="{{takeoutNotice.newnums>0}}">{{takeoutNotice.newnums}}</view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <block wx:if="{{cityNotice}}">
+                <view class="message-item clearfix" data-num="8" catchtap="goToMessageList">
+                    <view class="message-left">
+                        <image src="{{city_msg_pic}}" />
+                    </view>
+                    <view class="message-right">
+                        <view class="message-goodstype clearfix">
+                            <text class="message-goodstype-left">同城</text>
+                            <text class="message-goodstype-right">{{cityNotice.addtime}}</text>
+                        </view>
+                        <view class="message-goodsinfo clearfix">
+                            <view class="message-goodsinfo-left {{cityNotice.newnums>0?'message-bubble':''}}">
+                                <text>{{cityNotice.title}}</text>
+                                <block wx:if="{{cityNotice.status==1 || cityNotice.status==2 || cityNotice.status==3 || cityNotice.status==4 || cityNotice.status==5 || cityNotice.status==6 || cityNotice.status==7 || cityNotice.status==8 || cityNotice.status==9}}">
+                                    <text>商品名称：{{cityNotice.content}}</text>
+                                </block>
+                                <block wx:elif="{{cityNotice.status==31}}">
+                                    <text>打赏成功</text>
+                                </block>
+                                <block wx:elif="{{cityNotice.status==32}}">
+                                    <text>打赏失败</text>
+                                </block>
+                                <block wx:elif="{{cityNotice.status==33}}">
+                                    <text>您发布的信息收到来自“{{cityNotice.nickname}}”的打赏</text>
+                                </block>
+                                <block wx:elif="{{cityNotice.status==34}}">
+                                    <text>打赏提现-审核通过</text>
+                                </block>
+                                <block wx:elif="{{cityNotice.status==35}}">
+                                    <text>打赏提现-审核失败</text>
+                                </block>
+                                <block wx:elif="{{cityNotice.status==36}}">
+                                    <text>信息发布-成功</text>
+                                </block>
+                                <block wx:elif="{{cityNotice.status==37}}">
+                                    <text>信息发布-审核通过</text>
+                                </block>
+                                <block wx:elif="{{cityNotice.status==38}}">
+                                    <text>信息发布-审核失败</text>
+                                </block>
+                                <block wx:elif="{{cityNotice.status==39}}">
+                                    <text>评论消息（帖子回复及评论回复）</text>
+                                </block>
+                            </view>
+                            <view class="message-goodsinfo-right" wx:if="{{cityNotice.newnums>0}}">{{cityNotice.newnums}}</view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <block wx:if="{{orderNotice}}">
+                <view class="message-item clearfix" data-num="9" catchtap="goToMessageList">
+                    <view class="message-left">
+                        <image src="{{appoint_msg_pic}}" />
+                    </view>
+                    <view class="message-right">
+                        <view class="message-goodstype clearfix">
+                            <text class="message-goodstype-left">预约到店</text>
+                            <text class="message-goodstype-right">{{orderNotice.addtime}}</text>
+                        </view>
+                        <view class="message-goodsinfo clearfix">
+                            <view class="message-goodsinfo-left {{orderNotice.newnums>0?'message-bubble':''}}">
+                                <text>{{orderNotice.title}}</text>
+                                <block wx:if="{{orderNotice.status==1 || orderNotice.status==2 || orderNotice.status==3 || orderNotice.status==4 || orderNotice.status==5 || orderNotice.status==6 || orderNotice.status==7 || orderNotice.status==8 || orderNotice.status==9 || orderNotice.status==40}}">
+                                    <text>商品名称：{{orderNotice.content}}</text>
+                                </block>
+                                <block wx:elif="{{orderNotice.status==41}}">
+                                    <text>已接单及核销码</text>
+                                </block>
+                                <block wx:elif="{{orderNotice.status==42}}">
+                                    <text>取消接单</text>
+                                </block>
+                                <block wx:elif="{{orderNotice.status==43}}">
+                                    <text>您的一个预约订单已过期，到期时间为{{orderNotice.addtime}}</text>
+                                </block>
+                                <block wx:elif="{{orderNotice.status==44}}">
+                                    <text>取消预约</text>
+                                </block>
+                            </view>
+                            <view class="message-goodsinfo-right" wx:if="{{orderNotice.newnums>0}}">{{orderNotice.newnums}}</view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <block wx:if="{{hotelNotice}}">
+                <view class="message-item clearfix" data-num="10" catchtap="goToMessageList">
+                    <view class="message-left">
+                        <image src="{{hotel_msg_pic}}" />
+                    </view>
+                    <view class="message-right">
+                        <view class="message-goodstype clearfix">
+                            <text class="message-goodstype-left">酒店预订</text>
+                            <text class="message-goodstype-right">{{hotelNotice.addtime}}</text>
+                        </view>
+                        <view class="message-goodsinfo clearfix">
+                            <view class="message-goodsinfo-left {{hotelNotice.newnums>0?'message-bubble':''}}">
+                                <text>{{hotelNotice.title}}</text>
+                                <text>房型名称：{{hotelNotice.content}}</text>
+                            </view>
+                            <view class="message-goodsinfo-right" wx:if="{{hotelNotice.newnums>0}}">{{hotelNotice.newnums}}</view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </block>
+</view>

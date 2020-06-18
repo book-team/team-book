@@ -1,0 +1,85 @@
+<view hidden="{{code==3}}">
+    <view hidden="{{is_disuer==0||is_disuer==null}}" class='msg_tongzhi'>
+        <text wx:if="{{grade==1}}" class='tongzhi ico-moon'>恭喜您已经成为一级分销商</text>
+        <text wx:if="{{grade==2}}" class='tongzhi ico-moon'>恭喜您已经成为二级分销商</text>
+    </view>
+    <view class='dis-top-box'>
+        <view class='dis-money-box' style='background:{{color}}'>
+            <view class='cash-pro-txt'>可提现佣金</view>
+            <view class='cash-money-txt'>{{balance}}</view>
+            <view class='cash-btn' catchtap='gotocash'>提现</view>
+            <view class='cash-btn1' catchtap='gotoIntroduce' style='color:{{color}}'>?</view>
+        </view>
+        <view class='dis-day-info'>
+            <view class='dis-day-box'>
+                <text class='day-name'>今日预估佣金</text>
+                <text class='day-money'>{{todayMoney}}</text>
+            </view>
+            <view class='dis-day-box'>
+                <text class='day-name'>预估总佣金</text>
+                <text class='day-money'>{{sevenMoney}}</text>
+            </view>
+            <view class='dis-day-box'>
+                <text class='day-name'>已提现佣金</text>
+                <text class='day-money'>{{cashMoney}}</text>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{is_show_nums==2}}">
+        <view class='opt-box' style='border-top: 1px solid #bbb;'>
+            <view class='opt-item' catchtap='goToExtension'>
+                <text class='opt-icon ico-moon icon-shangpinguanli'></text>
+                <text class='opt-txt'>商品推广库</text>
+                <text class='opt-num-txt'><text class='opt-num'>{{goodNums}}</text>件</text>
+            </view>
+            <view class='opt-item' catchtap='cashlist'>
+                <text class='opt-icon ico-moon icon-test'></text>
+                <text class='opt-txt'>提现明细</text>
+                <text class='opt-num-txt'><text class='opt-num'>{{cashmoney}}</text>元</text>
+            </view>
+            <view class='opt-item' catchtap='orderlist'>
+                <text class='opt-icon ico-moon icon-dingdan'></text>
+                <text class='opt-txt' style='border-right: 0;'>订单明细</text>
+                <text class='opt-num-txt'><text class='opt-num'>{{ordernums}}</text>笔</text>
+            </view>
+            <view class='opt-item' catchtap='sprecode'>
+                <text class='opt-icon ico-moon icon-tubiaozhizuomoban'></text>
+                <text class='opt-txt' style='padding-top:15rpx;'>推广二维码</text>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{is_show_nums==1}}">
+        <view class='opt-box' style='border-top: 1px solid #bbb;'>
+            <view class='opt-item' catchtap='goToExtension'>
+                <text class='opt-icon ico-moon icon-shangpinguanli'></text>
+                <text class='opt-txt'>商品推广库</text>
+                <text class='opt-num-txt'><text class='opt-num'>{{goodNums}}</text>件</text>
+            </view>
+            <view class='opt-item' catchtap='myTeamList'>
+                <text class='opt-icon ico-moon icon-tuandui1'></text>
+                <text class='opt-txt'>我的团队</text>
+                <text class='opt-num-txt'><text class='opt-num'>{{groupNums}}</text>人</text>
+            </view>
+            <view class='opt-item' catchtap='cashlist'>
+                <text class='opt-icon ico-moon icon-test'></text>
+                <text class='opt-txt'>提现明细</text>
+                <text class='opt-num-txt'><text class='opt-num'>{{cashmoney}}</text>元</text>
+            </view>
+            <view class='opt-item' catchtap='orderlist'>
+                <text class='opt-icon ico-moon icon-dingdan'></text>
+                <text class='opt-txt' style='border-right: 0;'>订单明细</text>
+                <text class='opt-num-txt'><text class='opt-num'>{{ordernums}}</text>笔</text>
+            </view>
+            <view class='opt-item' catchtap='sprecode'>
+                <text class='opt-icon ico-moon icon-tubiaozhizuomoban'></text>
+                <text class='opt-txt' style='padding-top:15rpx;'>推广二维码</text>
+            </view>
+        </view>
+    </view>
+    <view class='distip' hidden="{{!showtip}}">
+        {{tiptext}}
+    </view>
+</view>
+<import src="../../components/authod.wxml" />
+<template is="vqd_author" data="{{userInfo:userInfo,chooseAuthor:chooseAuthor}}"></template>
+<template is="newgift" data="{{hasgift:hasgift,coureduce:coureduce,coufull:coufull}}"></template>

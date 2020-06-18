@@ -1,0 +1,190 @@
+.dis-top-box {
+    width: 720rpx;
+    box-sizing: border-box;
+    height: 400rpx;
+    border: 1rpx solid #bbb;
+    margin: 17rpx 15rpx 22rpx;
+    border-top: 0;
+}
+.dis-money-box {
+    background: #f65454;
+    height: 250rpx;
+    position: relative;
+}
+.cash-btn {
+    border: 1rpx solid #fef4f4;
+    font-size: 29rpx;
+    color: #fff;
+    height: 50rpx;
+    line-height: 50rpx;
+    width: 120rpx;
+    position: absolute;
+    right: 20rpx;
+    top: 128rpx;
+    text-align: center;
+    border-radius: 3rpx;
+}
+.cash-btn1 {
+    font-size: 40rpx;
+    line-height: 40rpx;
+    background-color: #fff;
+    color: red;
+    position: absolute;
+    right: 20rpx;
+    top: 20rpx;
+    width: 40rpx;
+    height: 40rpx;
+    text-align: center;
+    border-radius: 50%;
+}
+.cash-pro-txt {
+    font-size: 31rpx;
+    color: #fff;
+    margin-left: 20rpx;
+    padding-top: 40rpx;
+    line-height: 30rpx;
+}
+.cash-money-txt {
+    font-size: 62rpx;
+    color: #ffdd24;
+    margin-left: 20rpx;
+    margin-top: 50rpx;
+    line-height: 60rpx;
+}
+.dis-day-info {
+    overflow: hidden;
+}
+.dis-day-box {
+    width: 239rpx;
+    border-right: 1rpx solid #bbb;
+    box-sizing: border-box;
+    float: left;
+    height: 150rpx;
+    text-align: center;
+    font-size: 31rpx;
+    line-height: 31rpx;
+}
+.dis-day-box:last-child {
+    border-right: 0;
+}
+.dis-day-box > text {
+    display: block;
+    margin-top: 30rpx;
+}
+.day-name {
+    color: #4e4e4e;
+}
+.day-money {
+    color: #ff4545;
+}
+.opt-box {
+    overflow: hidden;
+    box-sizing: border-box;
+    border-left: 1rpx solid #bbb;
+    border-top: 0;
+    margin: 0 15rpx;
+}
+.opt-item {
+    width: 240rpx;
+    border-right: 1rpx solid #bbb;
+    border-bottom: 1px solid #bbb;
+    box-sizing: border-box;
+    float: left;
+    height: 230rpx;
+    text-align: center;
+    font-size: 29rpx;
+    color: #4e4e4e;
+}
+.opt-item > text {
+    display: block;
+    line-height: 29rpx;
+}
+.opt-num {
+    color: red;
+}
+.icon-tixian::before {
+    content: '\e648';
+}
+.icon-tubiaozhizuomoban::before {
+    content: '\e64a';
+}
+.icon-gengduo1::before {
+    content: '\e64b';
+}
+.opt-icon {
+    font-size: 44rpx;
+    border-radius: 100%;
+    line-height: 78rpx !important;
+    margin: 25rpx auto;
+    width: 78rpx;
+    height: 78rpx;
+}
+.icon-tixian {
+    border: 1rpx solid #fd7d29;
+    color: #fd7d29;
+}
+.icon-tubiaozhizuomoban {
+    border: 1rpx solid #a655f7;
+    color: #a655f7;
+}
+.icon-gengduo1 {
+    border: 1rpx solid #52c9c6;
+    color: #52c9c6;
+}
+.opt-num-txt {
+    padding-top: 10rpx;
+}
+.distip {
+    position: fixed;
+    width: 62%;
+    margin: 0 17%;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 30rpx;
+    text-align: center;
+    height: 135rpx;
+    line-height: 135rpx;
+    top: 31%;
+}
+.tuandui image {
+    width: 62rpx;
+    height: 62rpx;
+    position: relative;
+    top: 6rpx;
+}
+.tuandui {
+    border: 1rpx solid #fbb24e;
+}
+.tongzhi:before {
+    font-size: 46rpx;
+    color: #fff;
+    line-height: 70rpx;
+    margin: 0 15rpx;
+    position: relative;
+    top: 4rpx;
+}
+.tongzhi {
+    color: #fff;
+    font-size: 30rpx;
+    line-height: 63rpx;
+}
+.msg_tongzhi {
+    height: 70rpx;
+    background-color: #626262;
+}
+.icon-shangpinguanli {
+    border: 1rpx solid #e6004d;
+    color: #eb3373;
+}
+.icon-test {
+    border: 1rpx solid #18aaa7;
+    color: #19aca6;
+}
+.icon-dingdan {
+    border: 1rpx solid #1f6fb8;
+    color: #1c6bb6;
+}
+.icon-tuandui1 {
+    border: 1rpx solid #ec9d27;
+    color: #e99318;
+}
