@@ -1,0 +1,21 @@
+<view style="{{notice.style}}" class="sysnotice_box">
+    <view class="ico-moon icon-xzfw-laba" style="{{notice.iconstyle}}"></view>
+    <block wx:if="{{notice.playtype == 1}}">
+        <view class="sysnotice_list" style="{{notice.noticestyle}}">
+            <view class="sysnotice_move" style="{{'animation:noti_move '+notice.interval+'s linear infinite'}}">
+                <block wx:for="{{content}}" wx:key="{{item}}">
+                    <view class="notice_item">{{item.content}}</view>
+                </block>
+            </view>
+        </view>
+    </block>
+    <block wx:else>
+        <view class="sysnotice_list" style="{{notice.noticestyle}}">
+            <view class="sysnotice_move1" style="{{'top:'+ -nowidx*height + 'rpx'}}">
+                <block wx:for="{{content}}" wx:key="{{item}}">
+                    <view class="notice_item1">{{item.content}}</view>
+                </block>
+            </view>
+        </view>
+    </block>
+</view>

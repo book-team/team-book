@@ -1,0 +1,63 @@
+<view class="share-goods-bg" style="background:none;" hidden="{{!showShare}}" catchtap="closeShare">
+    <block wx:if="{{(goodstype=='group' || goodstype=='seck' || goodstype=='goods' || goodstype =='store' || goodstype=='dist') && showShareType}}">
+        <view class="share-goods-bottom" catchtap="emptyEvent">
+            <view class="share-goods-box clearfix">
+                <view class="share-goods-item share-goods-left" data-share="0" catchtap="openFriends">
+                    <view class="share-goods-icon">
+                        <image src="{{loadSharePic && shareType==0?loading_pic:carpic}}" />
+                    </view>
+                    <view class="share-goods-title">商品</view>
+                </view>
+                <view class="share-goods-item share-goods-right" data-share="1" catchtap="openFriends">
+                    <view class="share-goods-icon">
+                        <image src="{{loadSharePic && shareType==1?loading_pic:storelogo}}" />
+                    </view>
+                    <view class="share-goods-title">店铺</view>
+                </view>
+            </view>
+            <view class="share-goods-cancel" catchtap="closeShare">
+                <text>取消</text>
+            </view>
+        </view>
+    </block>
+    <block wx:else>
+        <view class="share-goods-bottom" catchtap="emptyEvent">
+            <view class="share-goods-box clearfix">
+                <view class="share-goods-item share-goods-left" catchtap='shareTap'>
+                    <view>
+                        <image class="share-goods-icon" src="{{wxicon_pic}}" />
+                    </view>
+                    <view class="share-goods-title">微信好友</view>
+                    <button open-type="share" class='share-btn'></button>
+                </view>
+                <view class="share-goods-item share-goods-right" catchtap="{{(goodstype=='group' || goodstype=='seck' || goodstype=='goods' || goodstype!='store' || goodstype=='dist')?'openType':'openFriends'}}">
+                    <view>
+                        <image class="share-goods-icon" src="{{loadSharePic?loading_pic:firendcir_pic}}" />
+                    </view>
+                    <view class="share-goods-title">生成海报</view>
+                </view>
+            </view>
+            <view class="share-goods-cancel" catchtap="closeShare">
+                <text>取消</text>
+            </view>
+        </view>
+    </block>
+</view>
+<view class="share-goods-bg" hidden="{{!showBg}}" catchtap="closeShare"></view>
+<view class="share-friends-box" hidden="{{!showFriends}}" catchtap="closeShare">
+    <view class="share-goods-image" catchtap="emptyEvent">
+        <image class="share-poster" mode="aspectFill" src="{{compic}}"></image>
+    </view>
+    <view class="share-goods-btn">
+        <text class="share-goods-text" catchtap="shareFriends">保存生成海报</text>
+    </view>
+</view>
+<view class='zdy_tipbg' hidden='{{!showTip}}'>
+    <view class='zdy_tipbox'>
+        <view class='zdy_tiptxt'>是否允许保存图片到您的相册？</view>
+        <view class='zdy_btn'>
+            <button catchtap='closeTip' hover-class="none">取消</button>
+            <button bindopensetting="openSet" open-type="openSetting" class='zdy_sure_btn' hover-class="none">确定</button>
+        </view>
+    </view>
+</view>

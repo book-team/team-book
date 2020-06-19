@@ -1,0 +1,46 @@
+<!--授权弹窗-->
+<template name="vqd_author">
+    <view class='authorbg' wx:if="{{userInfo && !userInfo.avatarUrl && isopenAuthor}}" hidden='{{chooseAuthor}}'>
+        <view class='author_box'>
+            <view class='author_tit'>授权提示</view>
+            <view class='author_tip'>小程序申请获得以下权限：</view>
+            <view class='author_get'>
+                <text>·</text>获得你的公开信息（昵称、头像等）</view>
+            <view class="author_btnbox">
+                <view class="author_refuse" catchtap="refuseAuthor">拒绝</view>
+                <button class='author_btn' open-type='getUserInfo' lang='zh_CN' bindgetuserinfo="getuserinfo" catchtap='clickAuthor'>允许</button>
+            </view>
+        </view>
+    </view>
+</template>
+<!--新人礼包-->
+<template name="newgift">
+    <block wx:if="{{hasgift}}">
+        <view class="share-goods-bg"></view>
+        <view class="share-red-box" style="background-image: url(https://vqida.com/static/user/images/goodscoupon.png);">
+            <view class="share-red-title">
+                <image src="https://vqida.com/static/user/images/coupon_newgift.png" />
+            </view>
+            <view class="share-red-con">
+                <view>
+                    <view class="share-red-p1">
+                        获得
+                        <text class="share-red-p2">￥</text>
+                        <text class="share-red-p3">{{coureduce}}</text>优惠券
+                    </view>
+                    <view class="share-red-p1">订单满{{coufull}}元可用</view>
+                </view>
+            </view>
+            <view class="close_shopdetail" catchtap="closenewgift">
+                <image src="https://vqida.com/static/user/images/close_red.png"></image>
+            </view>
+        </view>
+    </block>
+</template>
+<!--没授权页面提示-->
+<template name="authorpage">
+    <view wx:if="{{userInfo && !userInfo.avatarUrl}}" class="authorpage">
+        <view class="authorpage-tip">为了更好的体验，请先授权！</view>
+        <view class="authorpage-btn" catchtap="openAuthor">点击授权</view>
+    </view>
+</template>

@@ -1,0 +1,144 @@
+@import '../../utils/font.wxss';
+.share-friends-box {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    z-index: 10001;
+}
+.share-goods-image {
+    width: 600rpx;
+    height: 934rpx;
+    background: #fff;
+    margin: 50rpx auto;
+    z-index: 10001;
+}
+.share-poster {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+}
+.share-goods-btn {
+    width: 650rpx;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 30rpx;
+    border-radius: 8rpx;
+    background: transparent;
+    height: auto;
+    line-height: normal;
+    color: #fff;
+}
+.share-goods-text {
+    border-color: #fff;
+    border-bottom: 2rpx solid #fff;
+}
+.share-goods-bg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10000;
+}
+.share-goods-bottom {
+    width: 100%;
+    padding: 35rpx 0 0;
+    background: #fff;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10001;
+    border-top: 2rpx solid #d7d7d7;
+}
+.share-goods-box {
+    width: 446rpx;
+    margin: 0 auto;
+}
+.share-goods-left {
+    float: left;
+    position: relative;
+}
+.share-goods-right {
+    float: right;
+}
+.share-goods-icon {
+    width: 100rpx;
+    height: 100rpx;
+}
+.share-goods-title {
+    font-size: 24rpx;
+    color: #333;
+    margin-top: 20rpx;
+}
+.share-btn {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    padding: 0;
+}
+.share-goods-cancel {
+    font-size: 30rpx;
+    color: #333;
+    margin-top: 40rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    bottom: 0;
+    position: relative;
+    background: #f0f0f0;
+    width: 100%;
+    overflow: hidden;
+}
+.zdy_tipbg {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    z-index: 999999;
+    top: 0;
+    left: 0;
+}
+.zdy_tipbox {
+    width: 620rpx;
+    height: 350rpx;
+    background: #fff;
+    border-radius: 5rpx;
+    text-align: center;
+    margin: 340rpx auto 0;
+    overflow: hidden;
+    position: relative;
+}
+.zdy_tiptxt {
+    font-size: 30rpx;
+    color: #202020;
+    line-height: 30rpx;
+    margin-top: 115rpx;
+}
+.zdy_btn {
+    height: 105rpx;
+    border-top: 1rpx solid #eff3f3;
+    color: #000;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.zdy_btn > button {
+    float: left;
+    padding: 0;
+    background: #fff;
+    width: 50%;
+    box-sizing: border-box !important;
+    font-size: 32rpx;
+    line-height: 105rpx;
+}
+.zdy_sure_btn {
+    border-left: 1rpx solid #eff3f3;
+    color: #3cc51f;
+}

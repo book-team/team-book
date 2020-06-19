@@ -1,0 +1,7 @@
+<view class="share-goods-bg" hidden="{{!showRed}}" catchtap="closeShare"></view>
+<view class="red-packet-box" hidden="{{!showRed}}" style="background-image:url({{packet_box_img}})">
+    <view class="pull-btn" catchtap="clickDismantl"></view>
+    <view class="close_shopdetail" catchtap="closeRed">
+        <image src="{{close_img}}"></image>
+    </view>
+</view>
