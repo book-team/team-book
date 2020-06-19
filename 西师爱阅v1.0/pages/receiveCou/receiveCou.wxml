@@ -1,0 +1,36 @@
+<view class="app" hidden="{{!show}}">
+    <view class="receive">
+        <view class="receive_top" style="background: url({{receiveTop_pic}});">
+            <block wx:if="{{rec_success}}">
+                <view class="cou_p" wx:if="{{code==1}}">您已经领取
+                    <text>{{reduce}}</text>元代金券</view>
+                <view class="cou_p" wx:else>{{msg}}</view>
+                <view class="cou_s">分享给你的小伙伴吧</view>
+            </block>
+            <block wx:else>
+                <view class="cou_p">抱歉，来晚了没券了~</view>
+            </block>
+        </view>
+        <block wx:if="{{code==1}}">
+            <view class="cou_detail {{rec_success==true?'':'hidden'}}" style="background: url({{coubg_pic}});">
+                <view class="cou_detail_l">￥{{reduce}}</view>
+                <view class="cou_detail_r">
+                    <view class="use_condition">满{{full}}元可用</view>
+                    <view class="use_time">有效期至{{endtime}}</view>
+                </view>
+            </view>
+            <button class="rec_btn ord_btn" catchtap="goToBug">去下单</button>
+            <button class="rec_btn {{rec_success==true?'':'hidden'}}" open-type="share">邀请好友一起来</button>
+            <view class="rec_promit" hidden="{{explain==''}}">
+                <view class="promit_tit">活动说明</view>
+                <view class="promit_txt">{{explain}}</view>
+            </view>
+        </block>
+        <block wx:else>
+            <button class="rec_btn ord_btn" style='margin-top:200rpx;' catchtap="goToBug">返回</button>
+        </block>
+    </view>
+</view>
+<import src="../../components/authod.wxml" />
+<template is="vqd_author" data="{{userInfo:userInfo,chooseAuthor:chooseAuthor}}"></template>
+<template is="newgift" data="{{hasgift:hasgift,coureduce:coureduce,coufull:coufull}}"></template>
