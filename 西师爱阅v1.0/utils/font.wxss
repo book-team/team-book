@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'icomoon';
+    src: url('https://www.vqida.com/static/user/fonts/iconfont.eot?t=1128311');
+    src: url('https://www.vqida.com/static/user/fonts/iconfont.eot?t=1128311') format('embedded-opentype'),
+         url('https://www.vqida.com/static/user/fonts/iconfont.ttf?t=1128311') format('truetype'),
+         url('https://www.vqida.com/static/user/fonts/iconfont.woff?t=1128311') format('woff'),
+         url('https://www.vqida.com/static/user/fonts/iconfont.svg?t=1128311') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.ico-moon {
+    font-family: 'icomoon' !important;
+}
