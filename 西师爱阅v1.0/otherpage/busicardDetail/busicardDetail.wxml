@@ -1,0 +1,152 @@
+<scroll-view scroll-y="true" class="busicard_detailbox" hidden='{{!loaded}}'>
+    <view class="bc_detail">
+        <view class="bc_ubase">
+            <view class="bc_name">{{card.name}}</view>
+            <view class="bc_jobs">{{card.jobs}}</view>
+        </view>
+        <view class="bc_music">
+            <view class="bc_music_box">
+                <text catchtap="playmus" class="bs_music_btn ico-moon {{audioplay?'icon-pause1':'icon-play1'}}"></text>
+                <view class="bc_music_proall">
+                    <text class="bc_music_pronow" style="width:{{playrate+'%'}};"></text>
+                </view>
+                <text class="bc_music_time">{{duration}}</text>
+            </view>
+        </view>
+        <view class="bc_uinfo" style="border-top: 0;">
+            <text class="bc_uinfo_tit">公司</text>
+            <text class="bc_uinfo_txt compname">{{card.company}}</text>
+        </view>
+        <view class="bc_uinfo">
+            <text class="bc_uinfo_tit">电话</text>
+            <text class="bc_uinfo_txt text_over">{{card.phone}}</text>
+            <text class="bc_uinfo_opt ico-moon icon-dianhua" data-tel="{{card.phone}}" catchtap="callphone"></text>
+        </view>
+        <view class="bc_uinfo">
+            <text class="bc_uinfo_tit">微信</text>
+            <text class="bc_uinfo_txt text_over">{{card.nickname}}</text>
+            <text class="bc_uinfo_opt ico-moon icon-fuzhi" data-name="微信" data-val="{{card.nickname}}" catchtap="copydata"></text>
+        </view>
+        <view class="bc_uinfo">
+            <text class="bc_uinfo_tit">邮箱</text>
+            <text class="bc_uinfo_txt text_over">{{card.email}}</text>
+            <text class="bc_uinfo_opt ico-moon icon-fuzhi" data-name="邮箱" data-val="{{card.email}}" catchtap="copydata"></text>
+        </view>
+        <view class="bc_uinfo">
+            <text class="bc_uinfo_tit">地址</text>
+            <text class="bc_uinfo_txt">{{card.address+card.detailaddress}}</text>
+            <text class="bc_uinfo_opt ico-moon icon-address" catchtap="openmap" data-lat="{{card.latitude}}" data-lng="{{card.longitude}}" data-address="{{card.address+card.detailaddress}}"></text>
+        </view>
+        <image class="bc_uavatar" src="{{card.head_img}}"></image>
+    </view>
+    <view class="bc_visit">
+        <view class="bc_visit_l">
+            <view class="bc_visit_ltop">
+                <block wx:for="{{card.card_user}}" wx:key="{{item}}" wx:if="{{index<5}}">
+                    <image class="bc_vavatar" src="{{item.avtar}}"></image>
+                </block>
+                <view class="bc_visit_spot" wx:if="{{card.card_user.length>5}}">
+                    <text></text>
+                    <text style="background: #b9b9b9;"></text>
+                    <text style="background: #dddddd;"></text>
+                </view>
+            </view>
+            <view class="bc_renqi_box">
+                <text class="icon-renqi ico-moon bc_renqi"></text>
+                <text>人气 {{card.card_userNum}}</text>
+            </view>
+        </view>
+        <view class="bc_visit_r">
+            <view class="icon-dianzan ico-moon bc_zan {{card.is_praise?'select':''}}" catchtap="clickzan"></view>
+            <view class="bc_zan_num">赞 {{card.card_praise}}</view>
+        </view>
+    </view>
+    <view class="bc_btnbox">
+        <view class="bc_share_btn" catchtap="openShare">分享名片</view>
+        <view class="bc_save_btn" catchtap="savephone">存入手机通讯录</view>
+    </view>
+    <view class="bc_moreinfo_tip" wx:if="{{!showmore}}" catchtap="moreinfo">
+        展开全部名片信息
+        <text class="icon-bottomarrow ico-moon"></text>
+    </view>
+    <view wx:else>
+        <view>
+            <view class="bc_moreinfo_tit">
+                <text class="bc_line"></text>
+                <text class="bc_moreinfo_tittxt">个人简介</text>
+                <text class="bc_line"></text>
+            </view>
+            <view class="bc_person_detail">{{card.introduction}}</view>
+        </view>
+        <view wx:if="{{card.label_name.length>0}}">
+            <view class="bc_moreinfo_tit">
+                <text class="bc_line"></text>
+                <text class="bc_moreinfo_tittxt">个人标签</text>
+                <text class="bc_line"></text>
+            </view>
+            <view class="bc_tag_list">
+                <block wx:for="{{card.label_name}}" wx:key="{{item}}">
+                    <view class="bc_tag_item">{{item}}</view>
+                </block>
+            </view>
+        </view>
+        <view wx:if="{{card.life_img.length>0}}">
+            <view class="bc_moreinfo_tit">
+                <text class="bc_line"></text>
+                <text class="bc_moreinfo_tittxt">我的照片</text>
+                <text class="bc_line"></text>
+            </view>
+            <view class="bc_mypic">
+                <block wx:for="{{card.life_img}}" wx:key="{{item}}">
+                    <image src="{{item}}" mode="widthFix"></image>
+                </block>
+            </view>
+        </view>
+    </view>
+</scroll-view>
+<view class="expire_limit" hidden="{{vqdlevel!=1000}}">
+    <text>高级版即可体验，请到后台升级。</text>
+</view>
+<view class="expire_limit" hidden="{{vqdlevel!=2000}}">
+    <text>进阶版或高级版即可体验，请到后台升级。</text>
+</view>
+<canvas canvas-id="myCanvas" class='myCanvas'></canvas>
+<view class='sharebg' hidden='{{!showshare}}' catchtap='closeShare'>
+    <image src='{{sharepic}}' class='sharepic' catchtap='empty'></image>
+    <view catchtap='savepic' class='savepic_btn'>保存名片二维码海报</view>
+</view>
+<view class='zdy_tipbg' hidden='{{!showTip}}'>
+    <view class='zdy_tipbox'>
+        <view class='zdy_tiptxt'>是否允许保存图片到您的相册？</view>
+        <view class='zdy_btn'>
+            <button catchtap='closeTip' hover-class="none">取消</button>
+            <button bindopensetting="openSet" open-type="openSetting" class='zdy_sure_btn' hover-class="none">确定</button>
+        </view>
+    </view>
+</view>
+<view class="share-goods-bg" style="background:none;" hidden="{{!showShare1}}" catchtap="closeShare1">
+    <view class="share-goods-bottom" catchtap="empty">
+        <view class="share-goods-box clearfix">
+            <view class="share-goods-item share-goods-left">
+                <view>
+                    <image class="share-goods-icon" src="{{wxicon_pic}}" />
+                </view>
+                <view class="share-goods-title">微信好友</view>
+                <button open-type="share" class='share-btn'></button>
+            </view>
+            <view class="share-goods-item share-goods-right" catchtap="openFriends">
+                <view>
+                    <image class="share-goods-icon" src="{{loadSharePic?loading_pic:firendcir_pic}}" />
+                </view>
+                <view class="share-goods-title">生成海报</view>
+            </view>
+        </view>
+        <view class="share-goods-cancel" catchtap="closeShare1">
+            <text>取消</text>
+        </view>
+    </view>
+</view>
+<import src="../../components/authod.wxml" />
+<template is="vqd_author" data="{{userInfo:userInfo,chooseAuthor:chooseAuthor,isopenAuthor:isopenAuthor}}"></template>
+<template is="newgift" data="{{hasgift:hasgift,coureduce:coureduce,coufull:coufull}}"></template>
+<template is="authorpage" data="{{userInfo:userInfo}}"></template>
