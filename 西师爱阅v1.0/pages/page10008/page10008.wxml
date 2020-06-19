@@ -1,0 +1,61 @@
+<view class="app"><view class="ele-container" style="z-index: 10;"><redpacketscomp userInfo="{{userInfo}}" showRed="{{showRed}}" redid="{{redid || 0}}" redcode="{{redcode || 0}}" bind:openAuthor="openAuthor"></redpacketscomp></view><import src="../../components/template.wxml"/><import src="../../components/authod.wxml"/><template is="vqd_author" data="{{userInfo:userInfo,chooseAuthor:chooseAuthor,isopenAuthor:isopenAuthor}}"></template><template is="newgift"  data="{{hasgift:hasgift,coureduce:coureduce,coufull:coufull}}"></template><template is="expire" data="{{data:expire}}"></template><template is="vqdaddxcx" data="{{showAddTip:showAddTip}}"></template><view class="ele-container">
+						<template is="vqdCarousel" data="{{data:carousel1}}"></template>
+					 </view>
+					 <template name="slider2"><scroll-view scroll-x  class="element freePanel sliderbox" style="{{data.style}}" data-event-params="{{data.eventParams}}" catchtap="{{data.eventHandler}}"><view class="ele-container">
+						<template is="vqdPicture" data="{{data:data.content[0],real_value:rVal,phoneseg:pVal}}"></template>
+					 </view>
+					 <view class="ele-container">
+						<template is="vqdText" data="{{data:data.content[1],real_value:rVal,phoneseg:pVal}}"></template>
+					 </view>
+					 <view class="ele-container">
+						<template is="vqdText" data="{{data:data.content[2],real_value:rVal,phoneseg:pVal}}"></template>
+					 </view>
+					 <view class="ele-container">
+						<template is="vqdText" data="{{data:data.content[3],real_value:rVal,phoneseg:pVal}}"></template>
+					 </view>
+					 </scroll-view></template><view class="ele-container"><template is="slider2" data="{{data:slider2,item:item}}"></template></view><view class="ele-container">
+						<template is="vqdBreakline" data="{{data:dividing3}}"></template>
+					 </view>
+					 <template name="slider4"><scroll-view scroll-x  class="element freePanel sliderbox" style="{{data.style}}" data-event-params="{{data.eventParams}}" catchtap="{{data.eventHandler}}"><view class="ele-container">
+						<template is="vqdPicture" data="{{data:data.content[0],real_value:rVal,phoneseg:pVal}}"></template>
+					 </view>
+					 <view class="ele-container">
+						<template is="vqdText" data="{{data:data.content[1],real_value:rVal,phoneseg:pVal}}"></template>
+					 </view>
+					 <view class="ele-container">
+						<template is="vqdText" data="{{data:data.content[2],real_value:rVal,phoneseg:pVal}}"></template>
+					 </view>
+					 <view class="ele-container">
+						<template is="vqdText" data="{{data:data.content[3],real_value:rVal,phoneseg:pVal}}"></template>
+					 </view>
+					 </scroll-view></template><view class="ele-container"><template is="slider4" data="{{data:slider4,item:item}}"></template></view><view class="ele-container">
+						<template is="vqdBreakline" data="{{data:dividing5}}"></template>
+					 </view>
+					 <template name="slider6"><scroll-view scroll-x  class="element freePanel sliderbox" style="{{data.style}}" data-event-params="{{data.eventParams}}" catchtap="{{data.eventHandler}}"><view class="ele-container">
+						<template is="vqdPicture" data="{{data:data.content[0],real_value:rVal,phoneseg:pVal}}"></template>
+					 </view>
+					 <view class="ele-container">
+						<template is="vqdText" data="{{data:data.content[1],real_value:rVal,phoneseg:pVal}}"></template>
+					 </view>
+					 <view class="ele-container">
+						<template is="vqdText" data="{{data:data.content[2],real_value:rVal,phoneseg:pVal}}"></template>
+					 </view>
+					 <view class="ele-container">
+						<template is="vqdText" data="{{data:data.content[3],real_value:rVal,phoneseg:pVal}}"></template>
+					 </view>
+					 </scroll-view></template><view class="ele-container"><template is="slider6" data="{{data:slider6,item:item}}"></template></view><view class="ele-container">
+						<template is="vqdBreakline" data="{{data:dividing7}}"></template>
+					 </view>
+					 <template name="slider8"><scroll-view scroll-x  class="element freePanel sliderbox" style="{{data.style}}" data-event-params="{{data.eventParams}}" catchtap="{{data.eventHandler}}"><view class="ele-container">
+						<template is="vqdPicture" data="{{data:data.content[0],real_value:rVal,phoneseg:pVal}}"></template>
+					 </view>
+					 <view class="ele-container">
+						<template is="vqdText" data="{{data:data.content[1],real_value:rVal,phoneseg:pVal}}"></template>
+					 </view>
+					 <view class="ele-container">
+						<template is="vqdText" data="{{data:data.content[2],real_value:rVal,phoneseg:pVal}}"></template>
+					 </view>
+					 <view class="ele-container">
+						<template is="vqdText" data="{{data:data.content[3],real_value:rVal,phoneseg:pVal}}"></template>
+					 </view>
+					 </scroll-view></template><view class="ele-container"><template is="slider8" data="{{data:slider8,item:item}}"></template></view></view>

@@ -1,0 +1,13 @@
+<view class="app"><view class="ele-container" style="z-index: 10;"><redpacketscomp userInfo="{{userInfo}}" showRed="{{showRed}}" redid="{{redid || 0}}" redcode="{{redcode || 0}}" bind:openAuthor="openAuthor"></redpacketscomp></view><import src="../../components/template.wxml"/><import src="../../components/authod.wxml"/><template is="vqd_author" data="{{userInfo:userInfo,chooseAuthor:chooseAuthor,isopenAuthor:isopenAuthor}}"></template><template is="newgift"  data="{{hasgift:hasgift,coureduce:coureduce,coufull:coufull}}"></template><template is="expire" data="{{data:expire}}"></template><template is="vqdaddxcx" data="{{showAddTip:showAddTip}}"></template><template name="dynamicform1"><form class="element form-vessel" data-form="{{data.form}}" style="{{data.style}}" report-submit="true" bindsubmit="submitForm" data-compid="dynamicform1"><view class="ele-container">
+						  <template is="vqdInputEle" data="{{data:data.content[0],index:0}}"></template>
+					 </view></form></template><view class="ele-container"><template is="dynamicform1" data="{{data:dynamicform1}}"></template></view><template name="dynamicform2"><form class="element form-vessel" data-form="{{data.form}}" style="{{data.style}}" report-submit="true" bindsubmit="submitForm" data-compid="dynamicform2"><view class="ele-container">
+						  <template is="vqdInputEle" data="{{data:data.content[0],index:0}}"></template>
+					 </view></form></template><view class="ele-container"><template is="dynamicform2" data="{{data:dynamicform2}}"></template></view><template name="dynamicform3"><form class="element form-vessel" data-form="{{data.form}}" style="{{data.style}}" report-submit="true" bindsubmit="submitForm" data-compid="dynamicform3"><view class="ele-container">
+						  <template is="vqdInputEle" data="{{data:data.content[0],index:0}}"></template>
+					 </view></form></template><view class="ele-container"><template is="dynamicform3" data="{{data:dynamicform3}}"></template></view><view class="ele-container">
+						  <template is="vqdButton" data="{{data:button4,real_value:rVal,phoneseg:pVal}}"></template>
+					 </view>
+					 <view class="ele-container">
+						  <template is="vqdButton" data="{{data:button5,real_value:rVal,phoneseg:pVal}}"></template>
+					 </view>
+					 </view>

@@ -1,0 +1,7 @@
+<view class="app"><view class="ele-container" style="z-index: 10;"><redpacketscomp userInfo="{{userInfo}}" showRed="{{showRed}}" redid="{{redid || 0}}" redcode="{{redcode || 0}}" bind:openAuthor="openAuthor"></redpacketscomp></view><import src="../../components/template.wxml"/><import src="../../components/authod.wxml"/><template is="vqd_author" data="{{userInfo:userInfo,chooseAuthor:chooseAuthor,isopenAuthor:isopenAuthor}}"></template><template is="newgift"  data="{{hasgift:hasgift,coureduce:coureduce,coufull:coufull}}"></template><template is="expire" data="{{data:expire}}"></template><template is="vqdaddxcx" data="{{showAddTip:showAddTip}}"></template><view class="ele-container">
+						<template is="vqdText" data="{{data:text1,real_value:rVal,phoneseg:pVal}}"></template>
+					 </view>
+					 <view class="ele-container">
+						<template is="vqdText" data="{{data:text2,real_value:rVal,phoneseg:pVal}}"></template>
+					 </view>
+					 </view>
