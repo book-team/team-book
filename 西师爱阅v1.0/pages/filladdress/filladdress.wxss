@@ -1,0 +1,42 @@
+page {
+    width: 100%;
+    height: 100%;
+}
+.app {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+form {
+    font-size: 30rpx;
+}
+input, .input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 60rpx;
+    line-height: 73rpx;
+    background-color: #fff;
+    padding: 0 15rpx;
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+switch {
+    position: absolute;
+    right: 40rpx;
+    top: 50%;
+    margin-right: -10rpx;
+    margin-top: -16px;
+    transform: scale(0.9);
+    transform-origin: right center;
+}
+.triangle_arrow {
+    position: absolute;
+    top: 30rpx;
+    right: 16rpx;
+}
+.form-list {
+    margin-bottom: 0;
+    border-bottom: 20rpx solid #eee;
+}

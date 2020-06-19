@@ -1,0 +1,25 @@
+page {
+    background: #eee;
+}
+.pwditem {
+    overflow: hidden;
+    line-height: 120rpx;
+    background: #fff;
+}
+.pwditem > input {
+    width: 100%;
+    height: 120rpx;
+    border: 0;
+    padding-left: 20rpx;
+}
+.sell-save-btn {
+    background: #ec6941;
+    margin-top: 110rpx;
+}
+.pwditem > textarea {
+    padding: 20rpx;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    line-height: 30rpx;
+}

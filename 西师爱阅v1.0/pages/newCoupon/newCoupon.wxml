@@ -1,0 +1,73 @@
+<view class="besp-list">
+    <view class="bespcou-head">
+        <view class="{{status==0?'select':''}}" style="margin-left:30px;" catchtap="selbespCoupon" data-num='0'>全部</view>
+        <view class="{{status==1?'select':''}}" style="margin-left:53px;" catchtap="selbespCoupon" data-num='1'>未使用</view>
+        <view class="{{status==2?'select':''}}" style="margin-left:21px;" catchtap="selbespCoupon" data-num='2'>已过期/已使用</view>
+    </view>
+    <scroll-view scroll-y="true" class="bespcoup-list" bindscrolltolower="loadmoreCoupon">
+        <block wx:if="{{couponArr.length>0}}">
+            <block wx:for="{{couponArr}}" wx:key="{{item}}">
+                <view class="bespcou-item clearfix" data-cid="{{item.id}}" catchtap="goToCouponDetail">
+                    <view class="dispatch-coupon-left" style="background: url({{item.is_use!=0?newcoupon_nouse_bg_pic:newcoupon_bg_pic}}) no-repeat;">
+                        <text class="dispatch-reduce-icon">￥</text>
+                        <text class="dispatch-reduce-money">{{item.reduce}}</text>
+                    </view>
+                    <view class="dispatch-coupon-right" style="background: url({{newcouponl_bg_pic}}) no-repeat;">
+                        <view class="dispatch-reduce-top">
+                            <text>满{{item.full}}减{{item.reduce}}</text>
+                        </view>
+                        <view class="dispatch-reduce-bottom">
+                            <view class="dispatch-reduce-tip">{{item.useStoreStr}}</view>
+                            <view class="dispatch-reduce-tip">{{item.is_use==1?'使用时间':'有效期至'}}{{item.endtime}}</view>
+                        </view>
+                        <view class="dispatch-reduce-type">
+                            <block wx:if="{{item.belong_type==1}}">
+                                <block wx:if="{{item.is_use==0}}">
+                                    <image src="{{coupontype_pic2}}" />
+                                </block>
+                                <block wx:else>
+                                    <image src="{{coupontype_nouse_pic2}}" />
+                                </block>
+                            </block>
+                            <block wx:elif="{{item.belong_type==2}}">
+                                <block wx:if="{{item.is_use==0}}">
+                                    <image src="{{coupontype_pic1}}" />
+                                </block>
+                                <block wx:else>
+                                    <image src="{{coupontype_nouse_pic3}}" />
+                                </block>
+                            </block>
+                            <block wx:else>
+                                <block wx:if="{{item.is_use==0}}">
+                                    <image src="{{coupontype_pic1}}" />
+                                </block>
+                                <block wx:else>
+                                    <image src="{{coupontype_nouse_pic1}}" />
+                                </block>
+                            </block>
+                        </view>
+                        <block wx:if="{{item.is_use!=0}}">
+                            <view class="dispatch-reduce-overdue">
+                                <block wx:if="{{item.is_use==1}}">
+                                    <image src="{{coupon_used_pic}}" />
+                                </block>
+                                <block wx:else>
+                                    <image src="{{coupon_overdue_pic}}" />
+                                </block>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+            </block>
+        </block>
+        <block wx:else>
+            <view class="nothing-order" hidden="{{!nothing}}">暂无相关内容，再找找吧！</view>
+        </block>
+    </scroll-view>
+    <view class="expire_limit" hidden="{{vqdlevel!=1000}}">
+        <text>高级版即可体验，请到后台升级。</text>
+    </view>
+    <view class="expire_limit" hidden="{{vqdlevel!=2000}}">
+        <text>进阶版或高级版即可体验，请到后台升级。</text>
+    </view>
+</view>

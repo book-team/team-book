@@ -1,0 +1,18 @@
+<view class="add-tip">
+    <view class='tip'>为了方便您添加的商品操作，请用电脑访问以下地址添加商品</view>
+    <view class='pc-way'>
+        后台地址：{{store_site}}
+        <text class='copy' catchtap='copyurl'>复制</text>
+    </view>
+    <view class='pc-way'>
+        后台账号：{{phone}}
+    </view>
+    <view class='pc-way'>
+        后台密码：{{password}}
+        <text class='icon-pencilwhite ico-moon' catchtap='changeInfo' data-type="6" data-val="{{password}}"></text>
+    </view>
+    <view class='tip' style='margin-top:80rpx' wx:if="{{seltype!=4}}">你也可以长按识别以下二维码,登录手机管理后台操作,账号和密码和电脑端的一致</view>
+</view>
+<view class='qr-code' wx:if="{{seltype!=4}}">
+    <image src='{{qrcode}}' class='qr_code' catchtap='previewImage'></image>
+</view>

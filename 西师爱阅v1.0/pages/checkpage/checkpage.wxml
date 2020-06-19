@@ -1,0 +1,61 @@
+<view class="app">
+    <view class="top-nav">
+        <block wx:for="{{navlist}}" wx:key="{{item}}">
+            <view class="nav-list">
+                <view class="nav-item {{index==navIdx?'nav-active':''}}" data-index="{{index}}" catchtap="chooseNav">{{item}}</view>
+            </view>
+        </block>
+    </view>
+    <block wx:if="{{navIdx==0}}">
+        <view class="pay-body">
+            <view class="pay-title">消费金额</view>
+            <input type="digit" placeholder="请输入与商家确定的金额" class="pay-input" placeholder-class="pay-place" bindinput='entermoney' value="{{paymoney}}" focus="true" />
+            <view class="pay-title">支付方式</view>
+            <view class="pay-type">
+                <view class="pay-type-item clearfix">
+                    <view class="pay-left">储值卡支付(余额￥{{balance}})
+                        <text wx:if="{{balance<=0}}" class="recharge" catchtap="gotoRecharge">充值送现金，立即充值</text>
+                    </view>
+                    <view class="pay-right" data-type="card" catchtap="selPay">
+                        <block wx:if="{{selCard}}">
+                            <icon type="success" size="24" color="#ff6060" />
+                        </block>
+                        <block wx:else>
+                            <icon class="pay-radio" type="success_no_circle" size="18" color="#DDDDDD" />
+                        </block>
+                    </view>
+                </view>
+                <view class="pay-type-item clearfix">
+                    <view class="pay-left">微信支付</view>
+                    <view class="pay-right" data-type="wx" catchtap="selPay">
+                        <block wx:if="{{selWx}}">
+                            <icon type="success" size="24" color="#ff6060" />
+                        </block>
+                        <block wx:else>
+                            <icon class="pay-radio" type="success_no_circle" size="18" color="#DDDDDD" />
+                        </block>
+                    </view>
+                </view>
+            </view>
+            <view class="pay-btn" catchtap='surePay'>确认支付</view>
+        </view>
+    </block>
+    <block wx:else>
+        <view class="record-box">
+            <block wx:for="{{tralist}}" wx:key="{{item}}">
+                <view class="record-list clearfix">
+                    <text class="record-left">{{item.time}}</text>
+                    <text class="record-right">-{{item.money}}元</text>
+                </view>
+            </block>
+            <view class="nothing-order" style="background:#F0F0F0;" wx:if="{{tralist.length<=0}}" hidden="{{!nothing}}">暂无相关记录</view>
+        </view>
+    </block>
+    <view class="service-tip-box" hidden="{{!showTip}}">
+        <view class="service-tip-txt">{{tipText}}</view>
+    </view>
+</view>
+<import src="../../components/authod.wxml" />
+<template is="vqd_author" data="{{userInfo:userInfo,chooseAuthor:chooseAuthor,isopenAuthor:isopenAuthor}}"></template>
+<template is="newgift" data="{{hasgift:hasgift,coureduce:coureduce,coufull:coufull}}"></template>
+<template is="authorpage" data="{{userInfo:userInfo}}"></template>

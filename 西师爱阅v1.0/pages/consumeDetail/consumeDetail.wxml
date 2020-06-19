@@ -1,0 +1,35 @@
+<scroll-view scroll-y="true" class="besp-list" bindscrolltolower="scrollMoreBill">
+    <block wx:if="{{billArr.length>0}}">
+        <view class="consume-item" wx:for="{{billArr}}" wx:key="{{item}}">
+            <block wx:if="{{item.mode == 0}}">
+                <view class="consume-head">
+                    <block wx:if="{{item.gives_type==1}}">
+                        <text class="consume-tip">中奖充值{{item.gives}}元</text>
+                        <text class="consume-money">+{{item.all_recharge}}元</text>
+                    </block>
+                    <block wx:else>
+                        <text class="consume-tip" wx:if="{{item.is_admin==0}}">微信充值{{item.recharge}}元{{item.gives>0?'送'+item.gives+'元':''}}</text>
+                        <text class="consume-tip" wx:else>后台充值</text>
+                        <text class="consume-money">+{{item.all_recharge}}元</text>
+                    </block>
+                </view>
+            </block>
+            <block wx:elif="{{item.mode == 1}}">
+                <view class="consume-head">
+                    <text class="consume-tip">{{item.is_admin?'后台扣款':'消费'}}</text>
+                    <text class="consume-money">-{{item.pay}}元</text>
+                </view>
+            </block>
+            <block wx:else>
+                <view class="consume-head">
+                    <text class="consume-tip">余额退款</text>
+                    <text class="consume-money">+{{item.recharge}}元</text>
+                </view>
+            </block>
+            <view class="consume-time">{{item.addtime}}</view>
+        </view>
+    </block>
+    <block wx:else>
+        <view class="nothing-order" hidden="{{!nothing}}">暂无相关内容</view>
+    </block>
+</scroll-view>

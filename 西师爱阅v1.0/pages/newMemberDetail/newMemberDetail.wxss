@@ -1,0 +1,213 @@
+.member-box {
+    width: 690rpx;
+    margin: 30rpx 30rpx 0;
+    height: 280rpx;
+    border-radius: 11rpx;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+.member-name {
+    font-size: 30rpx;
+    line-height: 30rpx;
+    padding: 30rpx 0 0 30rpx;
+    float: left;
+}
+.member-time {
+    font-size: 24rpx;
+    line-height: 24rpx;
+    position: absolute;
+    right: 30rpx;
+    bottom: 25rpx;
+}
+.discount-pro {
+    width: 100%;
+    margin-top: 30rpx;
+    background: #fff;
+}
+.discount-tit {
+    color: #666;
+    font-size: 30rpx;
+    line-height: 90rpx;
+    padding-left: 30rpx;
+    border-bottom: 1rpx solid #eee;
+}
+.discount-txt {
+    color: #999;
+    padding-bottom: 30rpx;
+}
+.discount-txt > view {
+    font-size: 24rpx;
+    line-height: 24rpx;
+    margin-top: 30rpx;
+    padding-left: 50rpx;
+}
+.recharge-box {
+    width: 100%;
+    background: #fff;
+    margin-top: 21rpx;
+    overflow: hidden;
+}
+.recharge-tit {
+    color: #333;
+    font-size: 30rpx;
+    padding-left: 30rpx;
+    line-height: 105rpx;
+    border-bottom: 1rpx solid #eee;
+}
+.recharge-iist {
+    overflow: hidden;
+    padding-top: 30rpx;
+    border-bottom: 1rpx solid #eee;
+}
+.recharge-item {
+    width: 210rpx;
+    height: 120rpx;
+    box-sizing: border-box;
+    margin-left: 30rpx;
+    margin-bottom: 30rpx;
+    text-align: center;
+    float: left;
+    background: #f7f7f7;
+    border: 1rpx solid #f7f7f7;
+    border-radius: 15rpx;
+}
+.select.recharge-item {
+    border-color: #6f74ed;
+    background: #fff;
+}
+.recharge-money {
+    color: #666;
+    font-size: 30rpx;
+    line-height: 30rpx;
+    margin-top: 24rpx;
+}
+.recharge-money1 {
+    color: #666;
+    font-size: 30rpx;
+    line-height: 118rpx;
+}
+.recharge-money.select, .recharge-money1.select {
+    color: #697eee;
+}
+.send-money {
+    font-size: 24rpx;
+    color: #999;
+    line-height: 24rpx;
+    margin-top: 12rpx;
+}
+.send-money.select {
+    color: #aeb9f0;
+}
+.recharge-btn {
+    width: 180rpx;
+    height: 61rpx;
+    line-height: 61rpx;
+    border-radius: 100rpx;
+    background: #697eee;
+    color: #fff;
+    font-size: 30rpx;
+    text-align: center;
+    margin: 30rpx auto;
+}
+.membertip1 {
+    color: #f1e8ff;
+    font-size: 26rpx;
+    line-height: 26rpx;
+    text-align: center;
+    margin-top: 118rpx;
+}
+.disinfo {
+    position: absolute;
+    bottom: 30rpx;
+    color: #f1e8ff;
+    font-size: 26rpx;
+}
+.disinfo.left {
+    left: 30rpx;
+}
+.disinfo.right {
+    right: 30rpx;
+    text-align: right;
+}
+.disnum {
+    color: #fff;
+    font-size: 60rpx;
+}
+.next-level {
+    background: #fff;
+    margin-top: 20rpx;
+}
+.next-num {
+    line-height: 90rpx;
+    padding-left: 30rpx;
+    border-bottom: 1rpx solid #eee;
+    font-size: 23rpx;
+    color: #999;
+}
+.next-box {
+    padding-left: 50rpx;
+    font-size: 22rpx;
+    color: #999;
+    margin-top: 10rpx;
+}
+.next-box > view, .next-conbox > view {
+    margin-top: 20rpx;
+    line-height: 22rpx;
+}
+.next-box text, .next-conbox text {
+    display: inline-block;
+    width: 110rpx;
+    text-align: right;
+}
+.next-conbox {
+    padding-left: 50rpx;
+    font-size: 22rpx;
+    color: #999;
+    margin-top: 15rpx;
+    padding-bottom: 40rpx;
+}
+.next-tip {
+    line-height: 90rpx;
+    padding-left: 50rpx;
+    font-size: 22rpx;
+    color: #999;
+}
+.next-wish {
+    margin-top: 50rpx;
+    color: #999;
+    font-size: 22rpx;
+    text-align: center;
+}
+.next-wish > view {
+    line-height: 35rpx;
+}
+.get-condit {
+    line-height: 24rpx;
+    margin-top: 40rpx !important;
+    font-size: 24rpx;
+    overflow: hidden;
+}
+.disdetail {
+    width: 160rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    color: #fff;
+    font-size: 22rpx;
+    margin: 55rpx auto 0;
+    border: 1px solid #fff;
+    text-align: center;
+    border-radius: 5px;
+}
+.checklist.disdetail {
+    width: 180rpx;
+    float: right;
+    margin: 30rpx;
+}
+.nodata.disdetail {
+    color: #b5b5b5;
+    border-color: #b5b5b5;
+}
+.unclick.recharge-btn {
+    background: #c5c5c5;
+}

@@ -1,0 +1,51 @@
+<view class="app" hidden="{{!loaded}}">
+    <view class="coupon-detail-top">优惠券详情</view>
+    <view class="coupon-detail-con">
+        <view class="coupon-detail-item clearfix">
+            <view class="coupon-con-left">使用说明</view>
+            <view class="coupon-con-right">
+                <view class="coupon-con-one">订单满{{full}}元减{{reduce}}元</view>
+                <view class="coupon-con-one">{{storeName}}</view>
+                <view class="coupon-con-one">仅限{{goodtype}}商品使用</view>
+            </view>
+        </view>
+        <block wx:if="{{belong_type==0}}">
+            <view class="coupon-detail-item clearfix">
+                <view class="coupon-con-left">领取时间</view>
+                <view class="coupon-con-right">
+                    <view class="coupon-con-one">{{gettime}}</view>
+                </view>
+            </view>
+        </block>
+        <view class="coupon-detail-item clearfix">
+            <view class="coupon-con-left">有效日期</view>
+            <view class="coupon-con-right">
+                <view class="coupon-con-one">{{endtime}}</view>
+            </view>
+        </view>
+        <block wx:if="{{belong_type==0}}">
+            <view class="coupon-detail-item clearfix">
+                <view class="coupon-con-left">使用须知</view>
+                <view class="coupon-con-right">
+                    <block wx:if="{{everyday_num || everyone_num}}">
+                        <block wx:if="{{everyday_num}}">
+                            <view class="coupon-con-one">{{everyday_num}}</view>
+                        </block>
+                        <block wx:if="{{everyone_num}}">
+                            <view class="coupon-con-one">{{everyone_num}}</view>
+                        </block>
+                    </block>
+                    <block wx:else>
+                        <view class="coupon-con-one">无</view>
+                    </block>
+                </view>
+            </view>
+        </block>
+        <view class="coupon-detail-item clearfix">
+            <view class="coupon-con-left">活动说明</view>
+            <view class="coupon-con-right">
+                <view class="coupon-con-one">{{activity_shuo || '无'}}</view>
+            </view>
+        </view>
+    </view>
+</view>

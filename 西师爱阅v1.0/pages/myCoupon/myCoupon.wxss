@@ -1,0 +1,122 @@
+.coupon_box {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+.coupon_head {
+    width: 95%;
+    height: 78rpx;
+    margin: 0 auto;
+    line-height: 78rpx;
+    color: #333;
+    font-size: 26rpx;
+    background: #fff;
+    border-bottom: 2rpx #bcbcbc solid;
+}
+.coupon_head li {
+    float: left;
+    width: 60rpx;
+    height: 78rpx;
+    text-align: center;
+    margin-left: 30rpx;
+}
+.coupon_head > view {
+    font-size: 26rpx;
+    color: #454545;
+    font-weight: bold;
+    float: left;
+    width: 25%;
+    text-align: center;
+    box-sizing: border-box;
+    height: 78rpx;
+}
+.coupon_use {
+    width: 100%;
+    padding-bottom: 40rpx;
+    margin-top: 26rpx;
+    overflow-y: auto;
+    background: #fff;
+    height: calc(100% - 60px);
+    height: -webkit-calc(100% - 60px);
+}
+.coupon {
+    width: 89%;
+    margin: 26rpx auto 0;
+    border: none;
+    border-radius: 30rpx;
+    color: #fff;
+    font-size: 24rpx;
+    overflow: hidden;
+}
+.used {
+    float: right;
+    margin-top: 10rpx;
+    margin-right: 30rpx;
+    font-size: 26rpx;
+}
+.live_time {
+    padding-bottom: 30rpx;
+    margin: 20rpx 0 0 30rpx;
+    font-size: 30rpx;
+}
+.coupon_head > view.coupon_choose {
+    color: #f03;
+    border-bottom: 4rpx #f03 solid;
+}
+.myapplet_img {
+    margin: 60rpx 0 0 80rpx;
+}
+.myapplet_name {
+    margin-left: 10rpx;
+}
+.detail_box {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    overflow-y: auto;
+}
+.coupon_container {
+    width: 95%;
+    margin: 3.6% auto 0;
+    background: #ff6b6b;
+    border-radius: 30rpx;
+    overflow: hidden;
+}
+.coupon_desc {
+    width: 90%;
+    padding: 70rpx 20rpx 100rpx 20rpx;
+    margin: 15rpx auto 15rpx;
+    background: #fff;
+    border-radius: 30rpx;
+}
+.coupon_content {
+    font-size: 27rpx;
+    line-height: 40rpx;
+    overflow: hidden;
+}
+.coupon_obtain {
+    margin-top: 20rpx;
+    overflow: hidden;
+}
+.exchange {
+    float: left;
+}
+.back_btn {
+    width: 207rpx;
+    height: 59rpx;
+    border-radius: 15rpx;
+    background: #707070;
+    color: #fff;
+    font-size: 30rpx;
+    line-height: 59rpx;
+    text-align: center;
+    margin: 72rpx auto 0;
+}

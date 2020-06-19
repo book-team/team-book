@@ -1,0 +1,54 @@
+<view class="besp-list">
+    <view class="member-box" style="background: url({{discard_bg_pic}});">
+        <view class="member-name">折扣卡</view>
+        <!-- 0已有折扣卡 1达到点击开卡 3未达到开卡 2敬请期待 -->
+        <block wx:if="{{show_discount==0}}">
+            <view class='pribtn' catchtap="gotoMember" data-type='0'>查看特权>></view>
+            <view class='disinfo left'>
+                <view class='disnum'>{{discountInfo.discount}}</view>
+                <view>折扣（%）</view>
+            </view>
+            <view class='disinfo right'>
+                <view>当前等级：{{mycardinfo.level}}级</view>
+                <view>有效期：{{discountInfo.endtime}}</view>
+            </view>
+        </block>
+        <block wx:elif="{{show_discount==1}}">
+            <view class='membertip1'>您已达到领取折扣卡的标准!</view>
+            <view class='disdetail' catchtap='opencard' data-type="0">点我开卡</view>
+        </block>
+        <block wx:elif="{{show_discount==3}}">
+            <view class='membertip1'>您暂未达到领取折扣卡的标准!</view>
+            <view class='disdetail' catchtap="gotoMember" data-type='0'>查看详情</view>
+        </block>
+        <block wx:elif="{{show_discount==2}}">
+            <view class='membertip'>暂未开放该功能，敬请期待！</view>
+        </block>
+    </view>
+    <view class="member-box" style="background: url({{stocard_bg_pic}});" catchtap="gotoMember" data-type='1'>
+        <view class="member-name">储值卡</view>
+        <block wx:if="{{is_stored==1}}">
+            <block wx:if="{{mycardinfo.is_stored==1}}">
+                <view class='disdetail checklist' catchtap='consumeDetail'>查看消费明细</view>
+                <view class='disinfo left'>
+                    <view class='disnum'>{{mycardinfo.balance}}</view>
+                    <view>余额（元）</view>
+                </view>
+                <view class='disinfo right'>
+                    <view>有效期：永久</view>
+                </view>
+            </block>
+            <block wx:else>
+                <view class='membertip1'>尚未开通储值卡，已经错过几个亿！</view>
+                <view class='disdetail' catchtap="opencard" data-type="1">点我开卡</view>
+            </block>
+        </block>
+        <block wx:else>
+            <view class='membertip'>暂未开放该功能，敬请期待！</view>
+        </block>
+    </view>
+</view>
+<import src="../../components/authod.wxml" />
+<template is="vqd_author" data="{{userInfo:userInfo,chooseAuthor:chooseAuthor,isopenAuthor:isopenAuthor}}"></template>
+<template is="newgift" data="{{hasgift:hasgift,coureduce:coureduce,coufull:coufull}}"></template>
+<template is="authorpage" data="{{userInfo:userInfo}}"></template>

@@ -1,0 +1,25 @@
+.consume-item {
+    font-size: 30rpx;
+    color: #999;
+    width: 690rpx;
+    padding: 0 30rpx;
+    background: #fff;
+    margin-top: 20rpx;
+    overflow: hidden;
+}
+.consume-time {
+    line-height: 90rpx;
+    border-top: 1rpx solid #eee;
+}
+.consume-head {
+    margin-top: 33rpx;
+    margin-bottom: 28rpx;
+    overflow: hidden;
+}
+.consume-tip {
+    float: left;
+    color: #666;
+}
+.consume-money {
+    float: right;
+}

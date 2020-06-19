@@ -1,0 +1,108 @@
+<scroll-view scroll-y="true" class="besp-list" hidden="{{!loaded}}">
+    <block wx:if="{{membertype==0}}">
+        <view class="member-box" style="background: url({{discard_bg}});">
+            <view class="member-name">折扣卡</view>
+            <block wx:if="{{hascard==1}}">
+                <view class='disinfo left'>
+                    <view class='disnum'>{{disCard.discount}}</view>
+                    <view>折扣（%）</view>
+                </view>
+                <view class='disinfo right'>
+                    <view>当前等级：{{disCard.grade}}级</view>
+                    <view>有效期：{{disCard.islong==1?'永久':disCard.endtime}}</view>
+                </view>
+            </block>
+            <block wx:else>
+                <view class='membertip1'>您暂未达到领取折扣卡的标准</view>
+            </block>
+        </view>
+        <block wx:if="{{hascard == 1}}">
+            <view class="discount-pro" wx:if="{{!!disCard.reduce || !!disCard.auto_discounts || !!disCard.free || !!disCard.sendIntegral}}">
+                <view class="discount-tit">特权</view>
+                <view class="discount-txt">
+                    <view v-if="{{disCard.free!=''}}">{{disCard.free}}</view>
+                    <view v-if="{{disCard.auto_discounts!=''}}">{{disCard.auto_discounts}}</view>
+                    <view v-if="{{disCard.reduce!=''}}">{{disCard.reduce}}</view>
+                    <view v-if="{{disCard.sendIntegral!=''}}">{{disCard.sendIntegral}}</view>
+                </view>
+            </view>
+            <block wx:if="{{nextlevel==1}}">
+                <view class='next-level'>
+                    <view class='next-num'>下一等级：{{nextdisCard.grade}}级</view>
+                    <view>
+                        <view class="next-box" wx:if="{{nextpow.length>0}}">
+                            <block wx:for="{{nextpow}}" wx:key="{{item}}">
+                                <view>
+                                    <text>{{index==0?'等级特权：':''}}</text>{{item}}</view>
+                            </block>
+                        </view>
+                        <view class="next-conbox" wx:if="{{condition.length>0}}">
+                            <block wx:for="{{condition}}" wx:key="{{item}}">
+                                <view>
+                                    <text>{{index==0?'达成条件：':'或：'}}</text>{{item}}</view>
+                            </block>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <block wx:else>
+                <view class='next-level'>
+                    <view class='next-num'>下一等级：无</view>
+                    <view class='next-tip'>您目前已是最高级会员</view>
+                </view>
+                <view class='next-wish'>
+                    <view>感谢您的大力支持</view>
+                    <view>我们将努力为您提供更多的优惠福利，敬请期待！</view>
+                </view>
+            </block>
+        </block>
+        <block wx:else>
+            <view class='next-level'>
+                <view class='next-num' style="font-size:30rpx;color:#666;">领取标准</view>
+                <view class="next-conbox" wx:if="{{condition.length>0}}">
+                    <block wx:for="{{condition}}" wx:key="{{item}}">
+                        <view class='get-condit'>{{index==0?'':'或：'}}{{item}}</view>
+                    </block>
+                    <view class='get-condit'>达成标准后将自动领取折扣卡</view>
+                </view>
+            </view>
+        </block>
+    </block>
+    <block wx:else>
+        <view class="member-box" style="background: url({{stocard_bg}});">
+            <view class="member-name">储值卡</view>
+            <block wx:if="{{cardlog==1}}">
+                <view class='disdetail checklist' catchtap='consumeDetail'>查看消费明细</view>
+            </block>
+            <block wx:else>
+                <view class='disdetail checklist nodata'>暂无消费明细</view>
+            </block>
+            <view class='disinfo left'>
+                <view class='disnum'>{{balance}}</view>
+                <view>余额（元）</view>
+            </view>
+            <view class='disinfo right'>
+                <view>有效期：永久</view>
+            </view>
+        </view>
+        <block wx:if="{{membercard.length>0}}">
+            <view class="recharge-box">
+                <view class="recharge-tit">储值卡充值</view>
+                <view class="recharge-iist">
+                    <block wx:for="{{membercard}}" wx:key="{{item}}">
+                        <view class="recharge-item {{selidx==index?'select':''}}" catchtap='selRecharge' data-id='{{item.id}}' data-idx='{{index}}'>
+                            <block wx:if="{{isgive==0}}">
+                                <view class="recharge-money {{selidx==index?'select':''}}">{{item.recharge}}元</view>
+                                <view class="send-money {{selidx==index?'select':''}}">送{{item.gives}}元</view>
+                            </block>
+                            <block wx:else>
+                                <view class="recharge-money1 {{selidx==index?'select':''}}">{{item.recharge}}元</view>
+                            </block>
+                        </view>
+                    </block>
+                </view>
+                <view class="recharge-btn {{selidx==-1?'unclick':''}}" catchtap="gotoRecharge">充值</view>
+            </view>
+        </block>
+    </block>
+</scroll-view>

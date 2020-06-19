@@ -1,0 +1,130 @@
+<view class="coupon_box">
+    <view class="coupon_head">
+        <block wx:for="{{orderType}}" wx:key="{{item}}">
+            <view class="{{index==chooseIndex?'coupon_choose':''}}" data-index="{{index}}" catchtap="chooseType">{{item.name}}</view>
+        </block>
+    </view>
+    <view class="coupon_use">
+        <block wx:for="{{mycoupon}}" wx:key="{{item}}">
+            <view wx:if="{{item.id!=null}}">
+                <view class="coupon" style="background: {{item.background_color}};" catchtap="showDetail" data-couponid="{{item.id}}">
+                    <view style="overflow: hidden;">
+                        <view class="myapplet" style="float: left;">
+                            <view class="myapplet_img" style="margin: 20rpx 0 0 30rpx;">
+                                <image lazy-load="true" src="{{item.logo}}"></image>
+                            </view>
+                            <view class="myapplet_name" style="margin-top: 20rpx;margin-left: 10rpx;">
+                                <view style="font-size: 26rpx;width: 170rpx;margin-left: 20rpx;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
+                                    {{item.coupon_name}}
+                                </view>
+                                <view style="font-size: 60rpx;margin-top: 12rpx;margin-left: 60rpx;">
+                                    ￥{{item.reduce}}
+                                </view>
+                                <view style="margin-top: 12rpx;margin-left: 200rpx;font-size: 26rpx;">
+                                    {{item.type}}
+                                </view>
+                                <view style="margin-top: 12rpx;margin-left: 20rpx;">
+                                    满{{item.full}}减{{item.reduce}}元
+                                </view>
+                            </view>
+                        </view>
+                        <view class="used">
+                            {{item.usage}}
+                        </view>
+                    </view>
+                    <view class="live_time">
+                        <text>使用期限：{{item.time}}
+		            	</text>
+                        <text>{{item.usehour}}</text>
+                        <block wx:if="{{item.remove_holidays==0}}">
+                            <text>，去除节假日</text>
+                        </block>
+                        <block wx:if="{{item.remove_weekend==0}}">
+                            <text>，去除周末</text>
+                        </block>
+                    </view>
+                </view>
+                <view style="height: 14rpx;width: 89%;background: #F2F2F2;border: none;margin: auto;margin-top: 26rpx;"></view>
+            </view>
+        </block>
+    </view>
+    <view class="detail_box" hidden="{{showcouponDetail}}">
+        <view class="coupon_container" style="background:{{coupon.background_color}};">
+            <view class="myapplet">
+                <view class="myapplet_img" style="margin: 20rpx 0 0 20rpx;">
+                    <image src="{{coupon.logo||phone_icon_pic}}"></image>
+                </view>
+                <view class="myapplet_name" style="margin-top: 20rpx;margin-left: 10rpx;">
+                    <view style="color: #ffffff;width: 360rpx;margin-left: 20rpx;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
+                        <text>{{coupon.coupon_name}}</text>
+                    </view>
+                    <view style="margin-left: 66rpx;margin-top: 10rpx;">
+                        <text style="font-size: 60rpx;color: #E3FF26;">￥{{coupon.reduce}}</text>
+                        <text style="color: #ffffff;font-size: 27rpx;margin-left: 18rpx;">{{coupon.type}}</text>
+                    </view>
+                    <view style="margin-top: 12rpx;margin-left: 20rpx;color: #ffffff;">
+                        满{{coupon.full}}减{{coupon.reduce}}元
+                    </view>
+                </view>
+            </view>
+            <view class="live_time" style="width: 100%;color: #ffffff;text-align: center;margin-left: 0;">
+                <view>
+                    <text>使用期限：{{usetime}}，{{usehour}}</text>
+                </view>
+                <view>
+                    <block wx:if="{{coupon.remove_holidays==0}}">
+                        <text>，去除节假日</text>
+                    </block>
+                    <block wx:if="{{coupon.remove_weekend==0}}">
+                        <text>，去除周末</text>
+                    </block>
+                </view>
+            </view>
+            <view class="coupon_desc">
+                <view class="coupon_content">
+                    <view class="coupon_obtain" style="margin-top: 0;">
+                        <view style="float: left">
+                            <text>使用条件：</text>
+                        </view>
+                        <view class="exchange" style="margin-left: 0;">
+                            单笔消费满{{coupon.full}}元减{{coupon.reduce}}元
+                        </view>
+                    </view>
+                    <view class="coupon_obtain">
+                        <view style="float: left">
+                            <text>使用说明：</text>
+                        </view>
+                        <view class="exchange" style="margin-left: 0;width: 77%;">
+                            {{coupon.use_desc}}
+                        </view>
+                    </view>
+                    <view class="coupon_obtain">
+                        <view style="float: left">
+                            <text>联系我们：</text>
+                        </view>
+                        <view class="exchange" style="margin-left: 0;">
+                            <text>{{coupon.telphone}}</text>
+                        </view>
+                    </view>
+                    <view class="coupon_obtain">
+                        <view style="float: left">
+                            <text>地     址：</text>
+                        </view>
+                        <view class="exchange" style="margin-left: 0;">
+                            <text>{{coupon.address}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="back_btn" catchtap="back">
+            <text>返回</text>
+        </view>
+    </view>
+    <view class="expire_limit" hidden="{{vqdlevel!=1000}}">
+        <text>高级版即可体验，请到后台升级。</text>
+    </view>
+    <view class="expire_limit" hidden="{{vqdlevel!=2000}}">
+        <text>进阶版或高级版即可体验，请到后台升级。</text>
+    </view>
+</view>

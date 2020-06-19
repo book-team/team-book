@@ -1,0 +1,129 @@
+page {
+    background: #f0f0f0;
+}
+.app {
+    width: 100%;
+    height: 100%;
+}
+.top-nav {
+    height: 90rpx;
+    line-height: 90rpx;
+    background: #fff;
+    display: flex;
+}
+.nav-list {
+    flex: 1;
+    height: 100%;
+    text-align: center;
+}
+.nav-item {
+    display: inline-block;
+    height: 100%;
+    font-size: 30rpx;
+    color: #999;
+    padding: 0 10rpx;
+    box-sizing: border-box;
+}
+.nav-active {
+    color: #ff6060;
+    border-bottom: 4rpx solid #ff6060;
+}
+.pay-body {
+    width: 100%;
+    padding: 0 30rpx 0 48rpx;
+    margin-top: 20rpx;
+    background: #fff;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.pay-title {
+    margin-top: 32rpx;
+    font-size: 30rpx;
+    color: #333;
+}
+.pay-input {
+    min-width: 100%;
+    max-width: 100%;
+    height: 80rpx;
+    margin-top: 29rpx;
+    padding: 0 18rpx;
+    font-size: 28rpx;
+    color: #333;
+    border: 2rpx solid #eee;
+    box-sizing: border-box;
+}
+.pay-place {
+    font-size: 30rpx;
+    color: #999;
+}
+.pay-type {
+    width: 100%;
+    padding: 0 10rpx;
+    margin-top: 29rpx;
+    border-top: 2rpx solid #eee;
+    border-bottom: 2rpx solid #eee;
+    box-sizing: border-box;
+}
+.pay-type-item {
+    height: 96rpx;
+    line-height: 96rpx;
+    font-size: 30rpx;
+    color: #666;
+}
+.pay-left {
+    float: left;
+    display: flex;
+}
+.pay-right {
+    float: right;
+    line-height: normal;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.pay-btn {
+    width: 210rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    margin: 30rpx auto;
+    font-size: 30rpx;
+    color: #fff;
+    background: #ff6060;
+    border-radius: 30rpx;
+}
+.recharge {
+    font-size: 26rpx;
+    color: #45acf1;
+}
+.record-box {
+    width: 100%;
+    margin-top: 20rpx;
+    background: #fff;
+}
+.record-list {
+    width: 100%;
+    height: 90rpx;
+    line-height: 90rpx;
+    padding: 0 30rpx;
+    border-bottom: 2rpx solid #eee;
+    box-sizing: border-box;
+}
+.record-list:last-child {
+    border-bottom: 0;
+}
+.record-left {
+    float: left;
+    font-size: 30rpx;
+    color: #999;
+}
+.record-right {
+    float: right;
+    font-size: 30rpx;
+    color: #666;
+}
+.pay-radio {
+    padding: 5rpx;
+    border-radius: 50%;
+    border: 2rpx solid #cbcbcb;
+}

@@ -1,0 +1,68 @@
+.member-box {
+    width: 690rpx;
+    margin: 30rpx 30rpx 0;
+    height: 280rpx;
+    border-radius: 11rpx;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+.member-name {
+    font-size: 30rpx;
+    line-height: 30rpx;
+    padding: 30rpx 0 0 30rpx;
+    float: left;
+}
+.pribtn {
+    float: right;
+    font-size: 26rpx;
+    text-decoration: underline;
+    color: #f1e8ff;
+    padding: 30rpx;
+}
+.disinfo {
+    position: absolute;
+    bottom: 30rpx;
+    color: #f1e8ff;
+    font-size: 26rpx;
+}
+.disinfo.left {
+    left: 30rpx;
+}
+.disinfo.right {
+    right: 30rpx;
+    text-align: right;
+}
+.disnum {
+    color: #fff;
+    font-size: 60rpx;
+}
+.membertip {
+    color: #f1e8ff;
+    font-size: 26rpx;
+    text-align: center;
+    margin-top: 125rpx;
+}
+.membertip1 {
+    color: #f1e8ff;
+    font-size: 26rpx;
+    line-height: 26rpx;
+    text-align: center;
+    margin-top: 118rpx;
+}
+.disdetail {
+    width: 160rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    color: #fff;
+    font-size: 22rpx;
+    margin: 55rpx auto 0;
+    border: 1px solid #fff;
+    text-align: center;
+    border-radius: 5px;
+}
+.checklist.disdetail {
+    width: 180rpx;
+    float: right;
+    margin: 30rpx;
+}

@@ -1,0 +1,15 @@
+<view>
+    <form bindsubmit="changepwd">
+        <block wx:if="{{type!=4}}">
+            <view class='pwditem'>
+                <input type='text' name="newval" placeholder='{{plastr}}' value="{{oldval}}"></input>
+            </view>
+        </block>
+        <block wx:else>
+            <view class='pwditem' style='height:315rpx;'>
+                <textarea placeholder="{{plastr}}" name="newval" value="{{oldval}}"></textarea>
+            </view>
+        </block>
+        <button form-type="submit" class='sell-save-btn'>保 存</button>
+    </form>
+</view>
